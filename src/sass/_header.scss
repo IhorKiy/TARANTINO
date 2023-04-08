@@ -1,0 +1,220 @@
+.header__container {
+  padding: 20px;
+
+  @media screen and (min-width: 768px) {
+    padding: 32px;
+  }
+}
+
+.header__content {
+  // overflow: auto;
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 14px 14px 20px;
+  height: 460px;
+  display: flex;
+  width: calc(100% - 40px);
+  max-width: 440px;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+
+  @media screen and (min-width: 768px) {
+    height: 222px;
+    padding: 16px;
+    width: 704px;
+    max-width: 1216px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    height: 316px;
+    padding: 16px 32px;
+    width: 1216px;
+    max-width: 1280px;
+  }
+}
+
+.header__upper {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: baseline;
+    gap: 8px;
+  }
+}
+
+.header__nav {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.header__nav-btn {
+  display: block;
+  background: $light-bg-color;
+  border-radius: 100px;
+  font-family: $primary-font;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: $primary-font-color;
+  transition: color 250ms linear, background-color 250ms linear;
+
+  &:hover,
+  &:focus {
+    color: $light-font-color;
+    background-color: $dark-bg-color;
+  }
+
+  &--home {
+    padding: 12px 32px;
+
+    @media screen and (min-width: 768px) {
+      padding: 14px 32px;
+    }
+  }
+  &--lib {
+    padding: 12px 24px;
+
+    @media screen and (min-width: 768px) {
+      padding: 14px 32px;
+    }
+  }
+}
+
+.header__form {
+  position: relative;
+  max-width: 252px;
+}
+
+.header__input {
+  display: block;
+  margin: 0 auto;
+  width: 252px;
+  height: 38px;
+  padding: 11px 14px;
+  background: #ffffff;
+  border-radius: 100px;
+  outline: transparent;
+  border: none;
+
+  @media screen and (min-width: 768px) {
+    padding: 13px 16px;
+    width: 187px;
+    height: 42px;
+  }
+
+  &::placeholder {
+    font-family: $primary-font;
+    font-size: 14px;
+    line-height: 1.14;
+    color: $primary-font-color;
+  }
+}
+
+.header__search-btn {
+  position: absolute;
+  top: 4px;
+  right: 7px;
+  padding: 7px;
+  background-color: transparent;
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    top: 5px;
+    right: 8px;
+    padding: 8px;
+  }
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+
+  @media screen and (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 59px;
+    height: 59px;
+  }
+}
+
+.logo__link {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+  }
+  @media screen and (min-width: 1280px) {
+    gap: 16px;
+  }
+}
+
+.header__title {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.19;
+  color: $light-font-color;
+
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+    line-height: 1.18;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 64px;
+    line-height: 1.17;
+  }
+}
+
+.current {
+  color: $light-font-color;
+  background-color: $dark-bg-color;
+}
+
+// slider styles
+
+.swiper {
+  overflow: hidden;
+  height: 460px;
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    height: 222px;
+  }
+  @media screen and (min-width: 1280px) {
+    height: 316px;
+    width: 1216px;
+  }
+}
+
+.swiper-slide {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.slider__img {
+  @media screen and (min-width: 768px) {
+    height: 222px;
+  }
+  @media screen and (min-width: 1280px) {
+    height: 316px;
+  }
+}
