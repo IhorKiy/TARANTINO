@@ -1,4 +1,4 @@
-<li class="film__card">
+     <li class="film__card">
             <img src="" alt="" class="film_poster"> // постер фільму
             <div class="film_info">
                 <p class="film_name"></p>          // назва фільму
