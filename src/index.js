@@ -1,1 +1,1 @@
-const fetch = 112
+import swiper from "./js/swiper.js";
