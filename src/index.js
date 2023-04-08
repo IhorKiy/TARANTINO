@@ -1,1 +1,2 @@
-const fetch = 112
+const fetch = 112;
+// import { CloseModalByEsc, closeModalByClick } from './js/closeModal';
