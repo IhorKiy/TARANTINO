@@ -64,3 +64,5 @@ export class ApiMovie {
     return data;
   }
 }
+
+export const apiMovie = new ApiMovie;
