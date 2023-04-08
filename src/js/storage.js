@@ -53,13 +53,17 @@ function saveGenres() {
         
             })
             .catch((error) => console.log(error.message));
-    }
+    } else console.log("Жанри вже є в сховищі");
 }
 //saveGenres(); //записуюємо користувачу в localStorage список жанрів
+
 function loadGenres() {
-    const arrayGenres = load(GENRES_KEY);
+    let arrayGenres = load(GENRES_KEY);
+    if (!arrayGenres) {
+        saveGenres();
+    }
     console.log("from loadGenres",arrayGenres);
-    return arrayGenres;
+    return arrayGenres; //повертає масив жанрів
  }
 //loadGenres();
 // при загрузці сторінки очищуємо current в localStorage  і записуємо масив трендових фільмів заданої сторінки
@@ -84,7 +88,7 @@ function loadTrendMovies() {
 // ****** при ПАГІНАЦІЇ записуємо масив 20 фільмів в localStorage*******
 
 function saveCurrentPage(data) {
-    remove(CURRENT_KEY);
+   // remove(CURRENT_KEY);
     save(CURRENT_KEY, data);
 }
 //для рендеринга витягаємо масив фільмів з localStorage
@@ -144,18 +148,18 @@ function loadFromQueue() {
 //виводить на зовні для тих програм ,що мають import  storage from './storage'
 //звертатись до  цих функцій storage.назва_функції
 export default { 
-  saveGenres,
-  loadGenres,
-  saveTrendMovies,
-  loadTrendMovies,
-  saveCurrentPage,
-  loadCurrentPage,
-  addToWatched,
-  removeFromWatched,
-  loadFromWatched,
-  addToQueue,
-  removeFromQueue,
-  loadFromQueue,
+  saveGenres,  //storage.saveGenres() при завнтаженні сторінки функція фетчить масив жанрів і записує в сховище
+  loadGenres,  //storage.loadGenres() витягає масив жанрів зі сховища
+  saveTrendMovies, //storage.saveTrendMovies(page) зафетчить вказану сторінку трендових фільмів і запише її в сховище
+  loadTrendMovies, //storage.loadTrendMovies() для рендерігна  поверне масив трендових фільмів  зі сховища 
+  saveCurrentPage, //storage.saveCurrentPage(data)  той хто фетчить той має додати масив фільмів(data) в сховище 
+  loadCurrentPage, //storage.loadCurrentPage() хто рендерить текучу сторінку ,той бере масив фільмів зі сховища
+  addToWatched,  //storage.addToWatched(movie) при натисненні на ADD TO WATCHED  добавляє movie до сховища 
+  removeFromWatched, //storage.removeFromWatched(movie) при натисненні на REMOVE FROM WATCHED видаляє movie зі сховища 
+  loadFromWatched,   //storage.loadFromWatched() використовуємо для рендера сторінки в MyLibrary коли натиснули WATCHED
+  addToQueue,     //storage.addToQueue(movie) при натисненні на ADD TO QUEUE  добавляє movie до сховища 
+  removeFromQueue,  //storage.removeFromQueue(movie) при натисненні на REMOVE FROM QUEUE видаляє movie зі сховища 
+  loadFromQueue,   //storage.loadFromQueue() використовуємо для рендера сторінки в MyLibrary коли натиснули QUEUE
 };
 
 
