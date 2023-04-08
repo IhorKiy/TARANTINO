@@ -27,4 +27,5 @@ export default class Loader {
 //     overlay.classList.add('is-hidden');
 //     loader.classList.remove('loader--on');
 //   }
+
 // }
