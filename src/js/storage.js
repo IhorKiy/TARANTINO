@@ -144,18 +144,18 @@ function loadFromQueue() {
 //виводить на зовні для тих програм ,що мають import  storage from './storage'
 //звертатись до  цих функцій так: storage.saveGenres()/storage.loadGenres()......
 export default { 
-  saveGenres,
-  loadGenres,
-  saveTrendMovies,
-  loadTrendMovies,
-  saveCurrentPage,
-  loadCurrentPage,
-  addToWatched,
-  removeFromWatched,
-  loadFromWatched,
-  addToQueue,
-  removeFromQueue,
-  loadFromQueue,
+  saveGenres,  //storage.saveGenres() при завнтаженні сторінки функція фетчить масив жанрів і записує в сховище
+  loadGenres,  //storage.loadGenres() витягає масив жанрів зі сховища
+  saveTrendMovies, //storage.saveTrendMovies(page) зафетчить вказану сторінку трендових фільмів і запише її в сховище
+  loadTrendMovies, //storage.loadTrendMovies() для рендерігна  поверне масив трендових фільмів  зі сховища 
+  saveCurrentPage, //storage.saveCurrentPage(data)  той хто фетчить той має додати масив фільмів(data) в сховище 
+  loadCurrentPage, //storage.loadCurrentPage() хто рендерить текучу сторінку ,той бере масив фільмів зі сховища
+  addToWatched,  //storage.addToWatched(movie) при натисненні на ADD TO WATCHED  добавляє movie до сховища 
+  removeFromWatched, //storage.removeFromWatched(movie) при натисненні на REMOVE FROM WATCHED видаляє movie зі сховища 
+  loadFromWatched,   //storage.loadFromWatched() використовуємо для рендера сторінки в MyLibrary коли натиснули WATCHED
+  addToQueue,     //storage.addToQueue(movie) при натисненні на ADD TO QUEUE  добавляє movie до сховища 
+  removeFromQueue,  //storage.removeFromQueue(movie) при натисненні на REMOVE FROM QUEUE видаляє movie зі сховища 
+  loadFromQueue,   //storage.loadFromQueue() використовуємо для рендера сторінки в MyLibrary коли натиснули QUEUE
 };
 
 
