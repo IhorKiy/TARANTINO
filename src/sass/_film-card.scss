@@ -1,0 +1,53 @@
+.film_info {
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+
+    // має бути на боді
+    // font-family: 'Roboto';
+    // font-style: normal;
+}
+
+.film_poster {
+    width: 280px;
+    height: 472px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+    .film_info {
+        line-height: 16px;
+    }
+
+    .film_poster {
+        width: 336px;
+        height: 455px;
+    }
+}
+
+@media screen and (min-width: 1281px) {
+    .film_info {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .film_poster {
+        width: 394px;
+        height: 574px;
+    }
+}
+.film_name {
+    text-transform: uppercase;
+}
+.film_gener {
+    margin-top: 10px;
+    color: #B92F2C;
+}
+
+//  p {
+//     margin: 0;
+//  }
+
+// ul {
+//     list-style: none;
+// }
