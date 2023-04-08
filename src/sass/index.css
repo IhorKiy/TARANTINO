@@ -1,0 +1,123 @@
+@charset "UTF-8";
+@import '~node_modules/modern-normalize/modern-normalize.css';
+.container {
+  width: 100%;
+  padding-left: 32px;
+  padding-right: 32px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (min-width: 320px) {
+  .container {
+    width: 320px;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow-x: hidden;
+  }
+}
+@media screen and (min-width: 480px) {
+  .container {
+    width: 480px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 1280px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+.container-footer {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Оверлей індикатора завантаження  */
+.loader__overlay {
+  position: fixed;
+  /* Фіксована позиція */
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* Розмір на весь екран */
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  /* Півпрозорий чорний колір */
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 150ms linear;
+  /* Плавний перехід при зміні opacity */
+  /* Клас для приховування елемента */
+}
+.loader__overlay.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Блок індикатора завантаження */
+.loader--on {
+  position: fixed;
+  /* Фіксована позиція */
+  top: 50%;
+  left: 50%;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  transform: translate(-50%, -50%);
+  /* Центруємо елемент по вертикалі та горизонталі */
+  z-index: 999;
+}
+
+/* Квадратики індикатора завантаження */
+.loader--on div {
+  position: absolute;
+  box-sizing: border-box;
+  display: block;
+  margin: 10px;
+  width: 45px;
+  height: 45px;
+  border-top: 10px solid red;
+  /* Квадратик з верхньою гранню червоного кольору */
+  border-right: 10px solid black;
+  border-bottom: 10px solid red;
+  /* Квадратик з нижньою гранню червоного кольору */
+  border-left: 10px solid black;
+  border-radius: 50%;
+  /* Закруглені кути для створення круга */
+  animation: loader 2000ms linear infinite;
+  /* Анімація */
+}
+
+/* Затримки анімації для кожного квадратика */
+.loader--on div:nth-child(1) {
+  animation-delay: -450ms;
+}
+
+.loader--on div:nth-child(2) {
+  animation-delay: -300ms;
+}
+
+.loader--on div:nth-child(3) {
+  animation-delay: -150ms;
+}
+
+/* Анімація обертання */
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}/*# sourceMappingURL=index.css.map */
