@@ -58,6 +58,9 @@ function saveGenres() {
 //saveGenres(); //записуюємо користувачу в localStorage список жанрів
 function loadGenres() {
     const arrayGenres = load(GENRES_KEY);
+    if (!arrayGenres) {
+        saveGenres();
+    }
     console.log("from loadGenres",arrayGenres);
     return arrayGenres;
  }
