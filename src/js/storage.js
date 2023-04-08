@@ -142,7 +142,7 @@ function loadFromQueue() {
 }
 
 //виводить на зовні для тих програм ,що мають import  storage from './storage'
-//звертатись до  цих функцій storage.назва_функції
+//звертатись до  цих функцій так: storage.saveGenres()/storage.loadGenres()......
 export default { 
   saveGenres,
   loadGenres,
