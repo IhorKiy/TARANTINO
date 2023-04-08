@@ -1,3 +1,4 @@
+//export const apiMovie = new ApiMovie; потрібно в serviseAPI
 //export const apiMovie = new ApiMovie;
 import ApiMovie from "./serviseAPI";
 //const apiMovie = new ApiMovie;

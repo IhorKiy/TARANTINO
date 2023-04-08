@@ -65,4 +65,4 @@ export class ApiMovie {
   }
 }
 
-export const apiMovie = new ApiMovie;
+
