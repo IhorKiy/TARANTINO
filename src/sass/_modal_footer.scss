@@ -1,4 +1,4 @@
-.modalForFooter__backdrop {
+.modal_footer__backdrop {
     position: fixed;
     top: 0;
     left: 0;
@@ -14,13 +14,13 @@
     transition: opacity 250ms linear, visibility 250ms linear;
 }
 
-.modalForFooter__backdrop.is-hidden {
+.modal_footer__backdrop.is-hidden {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 }
 
-.modal_ftr {
+.modal_footer {
     position: absolute;
     padding: 40px;
     width: 528px;
@@ -29,18 +29,18 @@
     left: 50%;
     transform: translate(-50%, -50%);
 
-    background-color: #ffffff;
+    background-color: white;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
         0px 2px 1px rgba(0, 0, 0, 0.2);
     transition: transform 250ms;
 }
 
-.modalForFooter__backdrop.isl-hidden .modal {
+.modal_footer__backdrop.isl-hidden .modal {
     /* transform: opacity(0.3); */
     transform: translate(-50%, -75%);
 }
 
-.close-btn {
+.modal_footer__close-btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,18 +57,28 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.close-btn-icon {
+.modal_footer__close-btn-icon {
     transition-property: fill;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.close-btn:hover .close-btn-icon,
-.close-btn:focus .close-btn-icon {
+.modal_footer__close-btn:hover .modal_footer__close-btn-icon,
+.modal_footer__close-btn:focus .modal_footer__close-btn-icon {
     fill: blue;
 }
 
-.modal-form-text {
+.modal_footer__label{
+display: inline-block;
+width: 150px;
+height: 120px;
+background-color: rgb(228, 218, 218);
+background-image: url(../images/shot.png);
+background-size: cover;
+
+}
+
+.modal_footer__text {
     font-weight: 700;
     font-size: 20px;
     line-height: calc(23 / 20);
@@ -78,8 +88,9 @@
     color: #212121;
 }
 
-.forms-group {
-    display: block;
+.modal_footer__group {
+    display: flex;
+    gap: 10px;
 }
 
 
