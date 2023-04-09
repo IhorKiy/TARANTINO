@@ -1,0 +1,67 @@
+.library__nav {
+  margin-top: 16px;
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    top: 0;
+    right: 16;
+    gap: 4px;
+  }
+  @media screen and (min-width: 1280px) {
+    position: absolute;
+    top: 0;
+    right: 32;
+    gap: 8px;
+  }
+}
+
+.library__nav-btn {
+display: block;
+  background: $light-bg-color;
+  border-radius: 100px;
+  font-family: $primary-font;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: $accent-color;
+  transition: color 250ms linear, background-color 250ms linear;
+
+  &:hover,
+  &:focus {
+    color: $light-font-color;
+    background-color: $accent-color;
+  }
+
+  &--watched {
+    padding: 10px 23px;
+
+    @media screen and (min-width: 768px) {
+      padding: 12px 23px;
+    }
+    @media screen and (min-width: 1280px) {
+        padding: 14px 24px;
+      }
+  }
+  &--queue {
+    padding: 10px 24px;
+
+    @media screen and (min-width: 768px) {
+      padding: 12px 24px;
+    }
+    @media screen and (min-width: 1280px) {
+        padding: 14px 32px;
+      }
+  }
+}
+.active {
+    color: $light-font-color;
+    background-color: $accent-color;   
+}
