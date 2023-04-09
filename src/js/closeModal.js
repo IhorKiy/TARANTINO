@@ -1,22 +1,15 @@
 const overlay = document.querySelector('.overlay');
 const modal = document.querySelector('.modal');
 
-const CloseModalByEsc = onCloseBtnModal();
-const closeModalByClick = onCloseClickModal();
+window.addEventListener('keydown', e => {
+  if (modal.classList.contains('active')) {
+    handleKeyDown(e);
+  }
+});
 
-function onCloseBtnModal() {
-  window.addEventListener('keydown', e => {
-    if (modal.classList.contains('active')) {
-      handleKeyDown(e);
-    }
-  });
-}
-
-function onCloseClickModal() {
-  overlay.addEventListener('click', e => {
-    handleClick(e);
-  });
-}
+overlay.addEventListener('click', e => {
+  handleClick(e);
+});
 
 const handleKeyDown = e => {
   if (e.code === 'Escape') {
@@ -31,5 +24,3 @@ const handleClick = e => {
     overlay.classList.remove('active');
   }
 };
-
-export default { CloseModalByEsc, closeModalByClick };
