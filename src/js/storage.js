@@ -165,6 +165,9 @@ function loadFromQueue() {
 //виводить на зовні для тих програм ,що мають import  storage from './storage'
 //звертатись до  цих функцій так: storage.saveGenres()/storage.loadGenres()......
 export default { 
+    save, //storage.save(key,value) записує в key value(JSON) /під капотом setItem/stringify/try/catch
+    load, //storage.load(key) витягає JS з key /під капотом getItem/parse/try/catch
+    remove, //storage.remove(key) видаляє key /під капотом removeItem/try/catch
   saveGenres,  //storage.saveGenres() при завнтаженні сторінки функція фетчить масив жанрів і записує в сховище
   loadGenres,  //storage.loadGenres() витягає масив жанрів зі сховища
   saveTrendMovies, //storage.saveTrendMovies(page) зафетчить вказану сторінку трендових фільмів і запише її в сховище
