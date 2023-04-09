@@ -7,10 +7,10 @@ export class ApiMovie {
   query = '';
   genres = [];
 
-  async fetchAllMovie() {
+  async fetchAllMovie(page) {
     const params = new URLSearchParams({
       api_key: this.#API_KEY,
-      // page: page,
+      page: page,
     });
 
     try {

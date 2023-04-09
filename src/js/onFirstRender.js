@@ -18,7 +18,7 @@ async function onLoad(e) {
     } catch (error) {}
   }
   try {
-    const { results } = await apiMovie.fetchAllMovie();
+    const { results } = await apiMovie.fetchAllMovie(1);
     insertCardMarkup(results);
   } catch (error) {
     console.log(error);
