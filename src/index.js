@@ -4,4 +4,4 @@ import './js/loader';
 import './js/storage';
 import './js/serviseAPI';
 import './js/onFirstRender'
-import './js/modalForFooter'
+import './js/modal_footer'
