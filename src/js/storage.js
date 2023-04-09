@@ -86,9 +86,9 @@ function loadTrendMovies() {
 
 // ****** при ПАГІНАЦІЇ записуємо масив 20 фільмів в localStorage*******
 
-function saveCurrentPage(data) {
+function saveCurrentPage(data) { 
     remove(CURRENT_KEY);
-    save(CURRENT_KEY, data);
+    save(CURRENT_KEY, data); //???data.results
 }
 //для рендеринга витягаємо масив фільмів з localStorage
 function loadCurrentPage() {
@@ -96,9 +96,9 @@ function loadCurrentPage() {
     console.log("from loadCurrentPage",arrayMovies)
     return arrayMovies;
 }
-// mylibrary
+//******************** mylibrary *************************
 //const посилання на кнопку = document.querySelector("click", addToWatched)
-//при натисненні ADD TO WATCHED додаємо в localStorage якщо там його нема
+//при натисненні ADD TO WATCHED додаємо movie в localStorage якщо там його нема
 function addToWatched(movie) {
     const movies = load(WATCHED_KEY);
     if (!movies.includes(movie)) {
@@ -106,6 +106,7 @@ function addToWatched(movie) {
         save(WATCHED_KEY,movies);
     } else console.log('Цей фільм вже є в watched!');
 }
+//const посилання на кнопку = document.querySelector("click", removeFromWatched) це посилання на addToWatched але перевіряєемо textContent кнопки чи там REMOVE FROM WATCHED
 //при натисненні REMOVE FROM WATCHED видаляємо з localStorage якщо він там  є
 function removeFromWatched (movie){
     const movies = load(WATCHED_KEY);
@@ -115,6 +116,7 @@ function removeFromWatched (movie){
     } else console.log('Цього фільма нема в watched!');
 }
 // при натисненні на кнопку WATCHED 
+//const посилання на кнопку WATCHED = document.querySelector("click", loadFromWatched)
 //витягаємо  масив фільмів для рендерінга з localStorage(watched)
 function loadFromWatched() {
     const movies = load(WATCHED_KEY);
@@ -129,7 +131,8 @@ function addToQueue(movie) {
         save(QUEUE_KEY,movies);
     } else console.log('Цей фільм вже є в queue!');
 }
-//при натисненні REMOVE FROM QUEUE видаляємо з localStorage якщо він там  є
+//const посилання на кнопку = document.querySelector("click", removeFromQueue) то саме що ADD TO QUEUE
+//при натисненні REMOVE FROM QUEUE видаляємо з localStorage якщо він там  є перевіряєемо textContent кнопки чи там REMOVE FROM QUEUE
 function removeFromQueue (movie){
     const movies = load(QUEUE_KEY);
     if (movies.includes(movie)) {
@@ -137,7 +140,8 @@ function removeFromQueue (movie){
         save(QUEUE_KEY, movies);
     } else console.log('Цього фільма нема в queue!');
 }
-///при натисненні кнопки QUEUE витягаємо
+///при натисненні кнопки QUEUE витягаємо (треба поилання на кнопку)
+//const посилання на кнопку  QUEUE = document.querySelector("click", loadFromQueue)
 //витягаємо  масив фільмів для рендерінга з localStorage(queue)
 function loadFromQueue() {
     const movies = load(QUEUE_KEY);
@@ -155,10 +159,10 @@ export default {
   loadCurrentPage, //storage.loadCurrentPage() хто рендерить текучу сторінку ,той бере масив фільмів зі сховища
   addToWatched,  //storage.addToWatched(movie) при натисненні на ADD TO WATCHED  добавляє movie до сховища 
   removeFromWatched, //storage.removeFromWatched(movie) при натисненні на REMOVE FROM WATCHED видаляє movie зі сховища 
-  loadFromWatched,   //storage.loadFromWatched() використовуємо для рендера сторінки в MyLibrary коли натиснули WATCHED
+  loadFromWatched,   //storage.loadFromWatched() коли натиснули WATCHED використовуємо для рендера сторінки в MyLibrary 
   addToQueue,     //storage.addToQueue(movie) при натисненні на ADD TO QUEUE  добавляє movie до сховища 
   removeFromQueue,  //storage.removeFromQueue(movie) при натисненні на REMOVE FROM QUEUE видаляє movie зі сховища 
-  loadFromQueue,   //storage.loadFromQueue() використовуємо для рендера сторінки в MyLibrary коли натиснули QUEUE
+  loadFromQueue,   //storage.loadFromQueue() коли натиснули QUEUE використовуємо для рендера сторінки в MyLibrary 
 };
 
 
