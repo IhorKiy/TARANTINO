@@ -1,5 +1,6 @@
 import storage from './storage';
 import { getGenresNames } from './getGenresNames';
+
 const watchedBtn = document.querySelector('.library__nav-btn--watched');
 const gallery = document.querySelector('.card__container--library'); 
 
@@ -7,12 +8,11 @@ watchedBtn.addEventListener('click', showWatched);
 
 function showWatched() {
     if (!storage.loadFromWatched()) {
-        console.log('oops, empty!');
+        console.log('oops, empty!'); // тут або "нотіфлішка" будет або innerHTMl
     }
     else {
         const renderCard = storage.loadFromWatched().map(({ title, release_date, poster_path, genre_ids }) => { 
         const getGenreNames = getGenresNames(genre_ids);
-
 
             return ` <li class="film__card">
           <img src="https://image.tmdb.org/t/p/original${poster_path}" alt=${title} class="film_poster">
