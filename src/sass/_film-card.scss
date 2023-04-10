@@ -1,11 +1,14 @@
 .film_info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   width: 100%;
   // height: 48px;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.17;
   overflow: hidden;
-  white-space: nowrap;
+  // white-space: nowrap;
 }
 
 .film_poster {
@@ -13,10 +16,21 @@
   height: 402px;
   margin: 0;
   border-radius: 5px;
-  transition: transform 250ms linear;
+
+  display: block;
+  max-width: 100%;
+  min-height: 100%;
+
+  transition-property: scale;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 1s ease-out;
+
+  // transition: transform 250ms linear;
   &:hover,
   &:focus {
-    transform: scale(1.03);
+    // transform: scale(1.03);
+    scale: 1.15;
   }
   @media screen and(min-width: 768px) {
     width: 336px;
@@ -24,7 +38,7 @@
   }
   @media screen and (min-width: 1280px) {
     width: 395px;
-    height: 634px;
+    // height: 634px;
   }
 }
 
@@ -33,10 +47,10 @@
     line-height: 16px;
   }
 
-  .film_poster {
-    width: 336px;
-    height: 455px;
-  }
+  // .film_poster {
+  //   width: 336px;
+  //   height: 455px;
+  // }
 }
 
 @media screen and (min-width: 1280px) {
@@ -46,15 +60,15 @@
     height: auto;
   }
 
-  .film_poster {
-    width: 394px;
-    height: 574px;
-  }
+  // .film_poster {
+  //   width: 394px;
+  //   height: 574px;
+  // }
 }
 .film_name {
   text-transform: uppercase;
   height: auto;
-  white-space: nowrap;
+  // white-space: nowrap;
   width: 100%;
   overflow: hidden;
 }
@@ -84,8 +98,8 @@
 }
 
 .film_card {
-  width: 280px;
-  height: 440px;
+  // width: 280px;
+  // height: 440px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -93,14 +107,14 @@
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 
   @media screen and(min-width: 768px) {
-    width: 336px;
-    height: 495px;
+    // width: 336px;
+    // height: 495px;
     flex-basis: calc((100% - 30px) / 2);
     gap: 8px;
   }
   @media screen and (min-width: 1280px) {
-    width: 395px;
-    height: 634px;
+    // width: 395px;
+    // height: 634px;
     flex-basis: calc((100% - 30px * 2) / 3);
     gap: 12px;
   }
