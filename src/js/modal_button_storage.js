@@ -1,10 +1,19 @@
-import { refs, movie } from "./modal-movie";
+//import refs, movie чекаю  від Кості
+//import { refs, movie } from "./modal-movie";
 import storage from "./storage";
 //чарівні рядки)
 const addWatched = "ADD TO WATCHED";
 const removeWatched = "REMOVE FROM WATCHED";
 const addQueue = "ADD TO QUEUE";
 const removeQueue = "REMOVE FROM QUEUE";
+
+//****тимчасово поки нема звідки export refs на кнопки */
+const refs={
+    btnWatched: "",
+    btnQueue: "",
+}
+const movie = {};
+//************************************* */
 
 //перевіряє чи Є цей movie в сховищі WATCHED і дає кнопці відповіний напис
 function isWatched(movie,btn){
