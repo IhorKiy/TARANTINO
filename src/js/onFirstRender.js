@@ -8,6 +8,7 @@ async function onLoad(e) {
   if (!window.localStorage.getItem('genres')) {
     try {
       const { genres } = await apiMovie.fetchGenres();
+     
 
       const genresToSave = genres.reduce((acc, { id, name }) => {
         acc[id] = name;
@@ -18,6 +19,7 @@ async function onLoad(e) {
   }
   try {
     const { results } = await apiMovie.fetchAllMovie(1);
+    console.log(results);
     insertCardMarkup(results);
   } catch (error) {
     console.log(error);

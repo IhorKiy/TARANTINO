@@ -6,6 +6,7 @@ export class ApiMovie {
   #API_KEY = '4e109f7b4b6a0194008b1b4e8c435cc1';
   query = '';
   genres = [];
+  total_pages = '';
 
   async fetchAllMovie(page) {
     const params = new URLSearchParams({
