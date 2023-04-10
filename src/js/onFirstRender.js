@@ -1,10 +1,14 @@
 import { apiMovie } from './serviseAPI';
-import insertCardMarkup from './cardMarkup'
+import insertCardMarkup from './cardMarkup';
+import Loader from './loader';
+
+const loader = new Loader();
 
 window.addEventListener('load', onLoad);
 
 async function onLoad(e) {
   e.preventDefault();
+  loader.enable();
   if (!window.localStorage.getItem('genres')) {
     try {
       const { genres } = await apiMovie.fetchGenres();
@@ -24,4 +28,8 @@ async function onLoad(e) {
   } catch (error) {
     console.log(error);
   }
+  finally {
+    loader.disable();
+  }
+
 }
