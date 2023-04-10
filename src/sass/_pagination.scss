@@ -1,0 +1,25 @@
+.pagination {
+  display: flex;
+  list-style: none;
+  width: fit-content;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.pagination li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.current {
+  background-color: black;
+  color: white;
+}
+
+.more {
+  display: none;
+
+  @media screen and (min-width: 480px) {
+    display: flex;
+  }
+}
