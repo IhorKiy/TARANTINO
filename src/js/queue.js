@@ -9,7 +9,9 @@ import { getGenresNames } from './getGenresNames';
 
 const queue = storage.loadFromQueue() || [];
 
- refs.queueBtn.addEventListener('click', showQueue);
+
+// refs.queueBtn.addEventListener('click', showQueue);
+
 
 function showQueue() {
   if (!queue || !queue.length) {
