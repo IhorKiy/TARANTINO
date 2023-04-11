@@ -1,7 +1,10 @@
+import { refs } from "./refs";
 export default class Loader {
   constructor() {
-    this.overlay = document.querySelector('.loader__overlay');
-    this.loader = document.querySelector('.loader');
+    // this.overlay = document.querySelector('.loader__overlay');
+    // this.loader = document.querySelector('.loader');
+    this.overlay = refs.loaderOverlay;
+    this.loader = refs.loader;
   }
 
   enable() {

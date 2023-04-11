@@ -1,7 +1,7 @@
 //import  movie чекаю  від Кості
 //import { refs, movie } from "./modal-movie";
 import storage from "./storage";
-//import {addToWatchedBtn,addToQueueBtn} from "./refs";
+import {addToWatchedBtn,addToQueueBtn} from "./refs";
 //addToWatchedBtn
 //чарівні рядки)
 const addWatched = "ADD TO WATCHED";
