@@ -1,10 +1,15 @@
 import { apiMovie } from './serviseAPI';
 import insertCardMarkup from './cardMarkup'
 import storage from './storage';
+
 import { movieContainer } from './cardMarkup';
 import Paginator from './paginator';
 
 const a = new Paginator();
+
+import { refs } from "./refs";
+
+const movieContainer = refs.cardContainer;
 
 
 window.addEventListener('load', onLoad);
@@ -35,7 +40,8 @@ a.pagination.addEventListener('click', e => {
 
 async function onLoad(e) {
   e.preventDefault();
-  if (!window.localStorage.getItem('genres')) {
+  if (!storage.loadGenres()) {
+  //if (!window.localStorage.getItem('genres')) {
     try {
       const { genres } = await apiMovie.fetchGenres();
 
@@ -43,7 +49,8 @@ async function onLoad(e) {
         acc[id] = name;
         return acc;
       }, {});
-      window.localStorage.setItem('genres', JSON.stringify(genresToSave));
+     // window.localStorage.setItem('genres', JSON.stringify(genresToSave));
+      storage.saveGenres(genresToSave);
     } catch (error) {}
   }
   try {

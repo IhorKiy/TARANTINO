@@ -62,7 +62,7 @@ function loadGenres() {
     if (!arrayGenres) {
         saveGenres();
     }
-    console.log("from loadGenres",arrayGenres);
+   // console.log("from storage.loadGenres",arrayGenres);
     return arrayGenres;
  }
 //loadGenres();
@@ -80,7 +80,7 @@ function saveTrendMovies(page) {
 //весь масив сторінки трендових фільмів можна завантажити з current localStorage
 function loadTrendMovies() {
     const movies = load(CURRENT_KEY); 
-    console.log("from loadTrendMovies",movies);
+   // console.log("from storage.loadTrendMovies",movies);
     return movies;
 }   
 //loadTrendMovies();

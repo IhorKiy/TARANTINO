@@ -1,4 +1,7 @@
-const btn = document.querySelector('.button-thumb');
+import { refs } from "./refs";
+
+//const btn = document.querySelector('.button-thumb');
+const btn = refs.btnThumb;
 
 export function scrollFunction() {
   btn.addEventListener('click', () => {
