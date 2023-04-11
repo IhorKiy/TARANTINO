@@ -85,13 +85,18 @@
 // }
 
 .modal_footer__text {
-  font-weight: 700;
-  font-size: 20px;
-  line-height: calc(23 / 20);
-  text-align: center;
-  letter-spacing: 0.03em;
-  color: #212121;
-  margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: calc(23 / 20);
+    text-align: center;
+    letter-spacing: 0.03em;
+    margin-bottom: 10px;
+    font-family: 'Roboto';
+    font-style: normal;
+    color: #141414;
+    // font-size: 18px;
+    // line-height: 1.18;
+    // letter-spacing: 0.03em;
 }
 
 // .modal_footer__group {
@@ -106,15 +111,34 @@
 }
 
 .modal_footer__team--img {
-  // width: 165px;
-  height: 150px;
+
+background-repeat: no-repeat;
+background-size: cover;
+background-position: 50% 50%;
+
+@media screen and (max-width: 767px) {
+height: 220px;
+}
   @media screen and (min-width: 768px) {
     // width: 352px;
+    height: 210px;
   }
 
   @media screen and (min-width: 1280px) {
     // width: 270px;
+    height: 200px;
   }
+}
+
+.ihor-kiy {
+    background-image: url("../images/team/ihor-kiy.jpg");
+    background-position: 100% 0%;
+}
+.ihor-sapishchuk {
+    background-image: url("../images/team/Ihor-Sapishchuk.jpg");
+}
+.olena-pestova {
+    background-image: url("../images/team/olena-pestova.jpg");
 }
 
 .modal_footer__team-list {
@@ -168,40 +192,37 @@
 }
 
 .modal_footer__team-container {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   padding-right: 5px;
   padding-left: 5px;
-
-  @media screen and (max-width: 767px) {
-    // min-width: 300px;
-  }
-
-  @media screen and (min-width: 768px) {
-    // width: 250px;
-  }
-  @media screen and (min-width: 1280px) {
-    // width: 250px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
 }
 
 .modal_footer__team-container-name {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.18;
-  letter-spacing: 0.03em;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    color: #4e4b4b;
+    font-size: 18px;
+    line-height: 1.18;
+    letter-spacing: 0.03em;
 }
 
 .modal_footer__team-container-position {
-  margin-top: 8px;
-  margin-bottom: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        color: #767070;
+        font-size: 18px;
+        line-height: 1.18;
+        letter-spacing: 0.03em;
 }
 
 .modal_footer__social-list {
   display: flex;
-  gap: 5px;
+  gap: 8px;
   justify-content: center;
 }
 
