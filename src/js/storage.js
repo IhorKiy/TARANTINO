@@ -60,10 +60,10 @@ function saveGenres() {
 function loadGenres() {
     const arrayGenres = load(GENRES_KEY);
     if (!arrayGenres) {
-      saveGenres();
-      return arrayGenres;
+        saveGenres();
+        arrayGenres = load(GENRES_KEY);
     }
-   // console.log("from storage.loadGenres",arrayGenres);
+    
     return arrayGenres;
  }
 //loadGenres();
