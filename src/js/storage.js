@@ -3,6 +3,8 @@ import ApiMovie from "./serviseAPI";
 import { apiMovie } from "./serviseAPI";
 //console.log(apiMovie);
 //ключі для сховища
+
+const PAGE_KEY = "page";       //номер поточної сторінки
 const TOTAL_KEY = "total";     //кількість сторінок після запиту
 const CURRENT_KEY = "current"; //тут масив зафетчиних фільмів
 const WATCHED_KEY = "watched"; //тут масив переглянутих фільмів
@@ -83,14 +85,24 @@ function loadTrendMovies() {
 }   
 //loadTrendMovies();
 
-// ****** для ПАГІНАЦІЇ записуємо кількість сторінок
+// ****** для ПАГІНАЦІЇ записуємо кількість сторінок, номер поточної сторінки
 function saveTotalPages(number) {
     save(TOTAL_KEY, number);
 }   
 //витягуємо кількість сторінок
 function loadTotalPages() {
     load(TOTAL_KEY);
-}     
+} 
+
+//
+function savePage(page) {
+  save(PAGE_KEY, page)   
+  }
+
+function loadPage() {
+  load(PAGE_KEY);
+}
+
 //записуємо масив 20 фільмів в localStorage*******
 function saveCurrentPage(data) { 
     remove(CURRENT_KEY);
