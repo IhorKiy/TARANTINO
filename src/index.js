@@ -9,4 +9,3 @@ import './js/paginator';
 import './js/btnUp';
 import './js/queue';
 import './js/searchQuery';
-ш

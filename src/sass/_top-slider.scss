@@ -1,0 +1,92 @@
+.top-slider__section {
+  overflow: hidden;
+  position: relative; //try
+  height: 485px; //delete
+  padding: 40px 15px 15px;
+  background-image: url('../images/parallax-bg-2.jpg');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    height: 490px;
+    // padding: 30px 15px;
+  }
+  @media screen and (min-width: 1280px) {
+    height: 705px; //delete
+    padding: 50px 15px;
+  }
+}
+
+.top-slider {
+  width: 100%;
+  position: relative;
+  height: 403px;
+  overflow: hidden;
+  @media screen and (min-width: 768px) {
+    // height: 495px; //delete
+  }
+  @media screen and (min-width: 1280px) {
+    height: 575px; //delete
+  }
+}
+
+
+.top-slider__slide {
+  border-radius: 30px;
+  overflow: hidden;
+  height: 403px;
+  width: 300px;
+
+  @media screen and (min-width: 768px) {
+    height: 495px;
+    width: 350px;
+  }
+  @media screen and (min-width: 1280px) {
+    height: 575px;
+    width: 400px;
+  }
+}
+
+.top-slider__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+  border: 2px solid black;
+}
+
+.neon {
+  position: absolute;
+  z-index: 999;
+  left: 50%;
+  top: 5px;
+  transform: translateX(-50%);
+  font-size: 36px; 
+  font-weight: bold;
+  text-align: center;
+  // text-transform: uppercase;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #B92F2c, 0 0 70px #B92F2c, 0 0 80px #B92F2c, 0 0 100px #B92F2c, 0 0 150px #B92F2c; /* задаем текстовые тени */
+  color: transparent; 
+  animation: neon 2s ease-in-out infinite; 
+
+  @media screen and (min-width: 768px) {
+    font-size: 48px; 
+
+
+  }
+  @media screen and (min-width: 1280px) {
+
+  }
+}
+
+@keyframes neon {
+  from {
+    color: #fff; 
+  }
+  to {
+    color: #B92F2c;
+  }
+}
