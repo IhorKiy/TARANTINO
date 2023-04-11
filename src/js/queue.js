@@ -1,18 +1,21 @@
+import { refs } from './refs';
 import storage from './storage';
 import { getGenresNames } from './getGenresNames';
 
-const refs = {
-  library: document.querySelector('.card__container--library'),
-  queueBtn: document.querySelector('.library__nav-btn--queue'),
-};
+// const refs = {
+//   library: document.querySelector('.card__container--library'),//тепер refs.libraryContainer
+//   queueBtn: document.querySelector('.library__nav-btn--queue'),//тепер refs.queueBtn
+// };
 
 const queue = storage.loadFromQueue() || [];
 
+
 // refs.queueBtn.addEventListener('click', showQueue);
+
 
 function showQueue() {
   if (!queue || !queue.length) {
-    refs.library.innerHTML = `
+    library.innerHTML = `
       <li class="nothing">
         <img src="" alt="There's nothing to see here" />
       </li>`;
@@ -54,7 +57,7 @@ function showQueue() {
     .join('');
   
 
-  refs.library.innerHTML = data;
+  refs.libraryContainer.innerHTML = data;
 }
 
 

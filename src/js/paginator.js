@@ -1,3 +1,6 @@
+
+import { refs } from "./refs";
+
 // Інструкція!
 // 1. Імпортувати класс Paginator, створити екземпляр та зберегти в змінну;
 // 2. Створити слухач подій і повісити його на назва-змінної-екземпляру.pagination, з аргументом "click";
@@ -12,7 +15,8 @@
 
 export default class Paginator {
   constructor() {
-    this.pagination = document.querySelector('.pagination');
+    //this.pagination = document.querySelector('.pagination');
+    this.pagination = refs.pagination;
     this.pages = [1, 2, 3, 4, 5];
     this.totalPages = 0;
     this.currentPage = 1;
