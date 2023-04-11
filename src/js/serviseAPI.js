@@ -21,12 +21,12 @@ export class ApiMovie {
     }
   }
 
-  async searchMovieByQuery() {
+  async searchMovieByQuery(page) {
     
     const params = new URLSearchParams({
       api_key: this.#API_KEY,
       query: this.query,
-      page: 1,
+      page: page,
     });
 
     const { data } = await axios('/search/movie', { params });
