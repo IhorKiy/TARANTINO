@@ -76,6 +76,7 @@ export default class Paginator {
     return null;
   }
 
+  
   refresh() {
     this.currentPage = 1;
     this.makeMarkup();
