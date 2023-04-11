@@ -1,6 +1,8 @@
-//import refs, movie чекаю  від Кості
+//import  movie чекаю  від Кості
 //import { refs, movie } from "./modal-movie";
 import storage from "./storage";
+import {addToWatchedBtn,addToQueueBtn} from "./refs";
+//addToWatchedBtn
 //чарівні рядки)
 const addWatched = "ADD TO WATCHED";
 const removeWatched = "REMOVE FROM WATCHED";
@@ -9,8 +11,8 @@ const removeQueue = "REMOVE FROM QUEUE";
 
 //****тимчасово поки нема звідки export refs на кнопки */
 const refs={
-    btnWatched: "",
-    btnQueue: "",
+    addToWatchedBtn: "",
+    addToQueueBtn: "",
 }
 const movie = {};
 //************************************* */
@@ -31,11 +33,11 @@ function isQueue(movie,btn) {
     }
      else btn.textContent = removeQueue; //чи додавати відповідний клас?
 }
-//при відкритті модалки перевіряємо чи movie Є в сховищі
-// в масивах WATCHED/QUEUE і даємо відповідний напис на кнопках
-isWatched(movie, refs.btnWatched);
-isQueue(movie, refs.btnQueue);
-//в залежності що написано на кнопках => різні функції на лісенери
+//при відкритті модалки перевіряємо чи movie Є в сховищі по 
+//по ключах в масивах WATCHED/QUEUE і даємо відповідний напис на кнопках
+isWatched(movie, addToWatchedBtn);
+isQueue(movie, addToQueueBtn);
+//в залежності що написано на кнопках => різні функції fWatched, fQueue на лісенери
 let fWatched, fQueue;
 
 if (refs.btnWatched.textContent === addWatched) {
@@ -49,12 +51,11 @@ if (refs.btnQueue.textContent === addQueue) {
     fQueue = removeFromQueue;
 }
 //вішаємо лісенери на кнопки і функціі для них
-refs.btnWatched.addEventListener("click", fWatched);
-refs.btnQueue.addEventListener("click", fQueue);   
+addToWatchedBtn.addEventListener("click", fWatched);
+addToQueueBtn.addEventListener("click", fQueue);   
 
-//const посилання на кнопку = document.querySelector("click", addToWatched)
 //при натисненні ADD TO WATCHED додаємо movie в localStorage якщо там його нема
-function addToWatched(movie,btn) { //btn це ref на кнопку в модалці фільма,  фільма,яка відповідає за його ознаку WATChED
+function addToWatched(movie,btn) { //btn це ref на кнопку в модалці  WATChED
     const movies = storage.load(WATCHED_KEY);
     if (!movies.includes(movie) && btn.textContent === addWatched) { //
         movies.push(movie);
@@ -62,9 +63,9 @@ function addToWatched(movie,btn) { //btn це ref на кнопку в мода�
         btn.textContent = removeWatched;
     } else console.log('Цей фільм вже є в watched або кнопка НЕ ADD!');
 }
-//const посилання на кнопку = document.querySelector("click", removeFromWatched) це посилання на addToWatched але перевіряєемо textContent кнопки чи там REMOVE FROM WATCHED
+
 //при натисненні REMOVE FROM WATCHED видаляємо з localStorage якщо він там  є
-function removeFromWatched (movie,btn){ //btn це ref на кнопку в модалці  фільма,яка відповідає за його ознаку WATChED
+function removeFromWatched (movie,btn){ //btn це ref на кнопку в модалці  WATChED
     const movies = storage.load(WATCHED_KEY);
     if (movies.includes(movie) && btn.textContent === removeWatched) {
         movies = movies.filter(({ id }) => id !== movie.id)
@@ -73,9 +74,8 @@ function removeFromWatched (movie,btn){ //btn це ref на кнопку в мо
     } else console.log('Цього фільма нема в watched або кнопка НЕ REMOVE!');
 }
 
-//const посилання на кнопку = document.querySelector("click", addToQueue)
 //при натисненні ADD TO QUEUE додаємо в localStorage якщо там його нема
-function addToQueue(movie,btn) { //btn це ref на кнопку в модалці  фільма,яка відповідає за його ознаку QUEUE 
+function addToQueue(movie,btn) { //btn це ref на кнопку в модалці   QUEUE 
     const movies = storage.load(QUEUE_KEY);
     if (!movies.includes(movie) && btn.textContent === addQueue) {
         movies.push(movie);
@@ -83,9 +83,9 @@ function addToQueue(movie,btn) { //btn це ref на кнопку в модал�
          btn.textContent = removeQueue;
     } else console.log('Цей фільм вже є в queue або кнопка НЕ  ADD!');
 }
-//const посилання на кнопку = document.querySelector("click", removeFromQueue) то саме що ADD TO QUEUE
+
 //при натисненні REMOVE FROM QUEUE видаляємо з localStorage якщо він там  є перевіряєемо textContent кнопки чи там REMOVE FROM QUEUE
-function removeFromQueue (movie,btn){ //btn це ref на кнопку в модалці фільма, яка відповідає за його ознаку QUEUE
+function removeFromQueue (movie,btn){ //btn це ref на кнопку в модалці  QUEUE
     const movies = storage.load(QUEUE_KEY);
     if (movies.includes(movie) &&  btn.textContent === removeQueue) {
         movies = movies.filter(({ id }) => id !== movie.id)

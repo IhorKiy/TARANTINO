@@ -1,8 +1,11 @@
+import { refs } from "./refs";
 import storage from './storage';
 import { getGenresNames } from './getGenresNames';
 
-const watchedBtn = document.querySelector('.library__nav-btn--watched');
-const gallery = document.querySelector('.card__container--library'); 
+// const watchedBtn = document.querySelector('.library__nav-btn--watched');
+// const gallery = document.querySelector('.card__container--library'); 
+const watchedBtn = refs.watchedBtn;
+const gallery = refs.libraryContainer;
 
 watchedBtn.addEventListener('click', showWatched);
 
