@@ -2,8 +2,8 @@ import { refs } from './refs';
 
 const overlay = refs.overLay;
 const modal = refs.modal;
-// ******************const overlay = document.querySelector('.overlay');
-// *******************************const modal = document.querySelector('.modal');
+// * const overlay = document.querySelector('.overlay');
+// * const modal = document.querySelector('.modal');
 
 window.addEventListener('keydown', e => {
   if (modal.classList.contains('active')) {
