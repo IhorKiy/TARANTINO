@@ -1,12 +1,19 @@
 import { refs } from "./refs";
 import storage from './storage';
 import { getGenresNames } from './getGenresNames';
+<<<<<<< Updated upstream
 import Notiflix from 'notiflix';
+=======
+import { insertCardMarkup } from './cardMarkup';
+import Notiflix from 'notiflix';
+
+>>>>>>> Stashed changes
 
 // const watchedBtn = document.querySelector('.library__nav-btn--watched');
 // const gallery = document.querySelector('.card__container--library'); 
 const watchedBtn = refs.watchedBtn;
 const gallery = refs.libraryContainer;
+const movies = storage.loadFromWatched();
 
 watchedBtn.addEventListener('click', showWatched);
 
@@ -15,18 +22,6 @@ function showWatched() {
         Notiflix.Notify.failure('Oops, empty!');
     }
     else {
-        const renderCard = storage.loadFromWatched().map(({ title, release_date, poster_path, genre_ids }) => { 
-        const getGenreNames = getGenresNames(genre_ids);
-
-            return ` <li class="film__card">
-          <img src="https://image.tmdb.org/t/p/original${poster_path}" alt=${title} class="film_poster">
-            <div class="film_info">
-               <p class="film_name">${title}</p>         
-               <p class="film_gener">${getGenreNames}|${release_date.slice(0, 4)}</p>      
-            </div>
-         </li>`
-
-        }).join('');
-        gallery.innerHTML = renderCard;
+        insertCardMarkup(movies, gallery);
         }
     }
