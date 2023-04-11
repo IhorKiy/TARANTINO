@@ -1,6 +1,6 @@
-import storage from './storage.js'
+
 export const getGenresNames = ids => {
-    const savedGenres = storage.loadGenres();
+    const savedGenres = JSON.parse(window.localStorage.getItem('genres'));
     let genresNames = Object.entries(savedGenres)
       .filter(([key]) => ids.includes(parseInt(key)))
       .map(([_, value]) => value);
