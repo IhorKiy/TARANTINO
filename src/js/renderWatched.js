@@ -1,6 +1,7 @@
 import { refs } from "./refs";
 import storage from './storage';
 import { getGenresNames } from './getGenresNames';
+import Notiflix from 'notiflix';
 
 // const watchedBtn = document.querySelector('.library__nav-btn--watched');
 // const gallery = document.querySelector('.card__container--library'); 
@@ -11,7 +12,7 @@ watchedBtn.addEventListener('click', showWatched);
 
 function showWatched() {
     if (!storage.loadFromWatched()) {
-        console.log('oops, empty!'); // тут або "нотіфлішка" будет або innerHTMl
+        Notiflix.Notify.failure('Oops, empty!');
     }
     else {
         const renderCard = storage.loadFromWatched().map(({ title, release_date, poster_path, genre_ids }) => { 

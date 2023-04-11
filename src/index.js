@@ -8,3 +8,5 @@ import './js/modal_footer';
 import './js/paginator';
 import './js/btnUp';
 import './js/queue';
+import './js/renderWatched';
+
