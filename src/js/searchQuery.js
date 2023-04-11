@@ -2,7 +2,7 @@ import ApiMovie, { apiMovie } from "./serviseAPI";
 import { getGenresNames } from './getGenresNames';
 import insertCardMarkup from './cardMarkup'
 import storage from './storage';
-import { movieContainer } from './cardMarkup';
+
 
 const form = document.querySelector('.header__form')
 const input = form.querySelector(`input`)
@@ -22,12 +22,11 @@ function onSearch(e) {
   fetchMovie()
 }
 
-console.log(movieContainer)
 
 function fetchMovie(e) {
   apiMovie.searchMovieByQuery().then(data => {
     console.log(data)
 
-    insertCardMarkup(data.results, movieContainer)
+    insertCardMarkup(data.results, list)
   })
 }
