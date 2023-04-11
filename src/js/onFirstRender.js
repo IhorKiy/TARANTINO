@@ -1,6 +1,7 @@
 import { apiMovie } from './serviseAPI';
 import insertCardMarkup from './cardMarkup'
 import storage from './storage';
+import { movieContainer } from './cardMarkup';
 
 window.addEventListener('load', onLoad);
 
