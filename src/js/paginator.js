@@ -1,6 +1,21 @@
+import { refs } from "./refs";
+
+// Інструкція!
+// 1. Імпортувати класс Paginator, створити екземпляр та зберегти в змінну;
+// 2. Створити слухач подій і повісити його на назва-змінної-екземпляру.pagination, з аргументом "click";
+// 3. У властивість назва-змінної-екземпляру.totalPages вписати кількісить сторінок;
+// 4. Разом з рендеренгом контенту сторінки викликати метод назва-змінної-екземпляру.makeMarkup();
+// 5. Дадати функцію-обробник до слухача з пункту 2;
+// 6. Всередині функції-обробника викликати метод назва-змінної-екземплярую.getNumber() і паредати йому об'єкт події, як аргумент;
+// 7. Метод getNumber() повертає номер сторінки або null, ящо користувач натиснув на "...";
+// 8. Виконати повторний рендер контенту сторінки, яку обрав користувач;
+
+
+
 export default class Paginator {
   constructor() {
-    this.pagination = document.querySelector('.pagination');
+    //this.pagination = document.querySelector('.pagination');
+    this.pagination = refs.pagination;
     this.pages = [1, 2, 3, 4, 5];
     this.totalPages = 0;
     this.currentPage = 1;
@@ -57,6 +72,9 @@ export default class Paginator {
       this.makeMarkup();
       return this.currnetPage;
     }
+
+
+    return null;
 
   }
 

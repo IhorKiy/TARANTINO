@@ -37,16 +37,18 @@
   margin-right: auto;
 }
 
-.card__container {
+.card__container,
+.card__container--library {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  // justify-content: center;
+  justify-content: flex-start;
   gap: 20px;
 
   @media screen and (min-width: 768px) {
-    gap: 30px; 
+    gap: 30px;
   }
   @media screen and (min-width: 1280px) {
-    gap: 16px; 
+    gap: 16px;
   }
 }

@@ -1,8 +1,11 @@
 
 import ApiMovie from "./serviseAPI";
 import { apiMovie } from "./serviseAPI";
-//console.log(apiMovie);
+
 //ключі для сховища
+
+const PAGE_KEY = "page";       //номер поточної сторінки
+const TOTAL_KEY = "total_pages";     //кількість сторінок після запиту
 const CURRENT_KEY = "current"; //тут масив зафетчиних фільмів
 const WATCHED_KEY = "watched"; //тут масив переглянутих фільмів
 const QUEUE_KEY = "queue";     //тут масив фільмів для майьутнього перегляду
@@ -59,7 +62,7 @@ function loadGenres() {
     if (!arrayGenres) {
         saveGenres();
     }
-    console.log("from loadGenres",arrayGenres);
+   // console.log("from storage.loadGenres",arrayGenres);
     return arrayGenres;
  }
 //loadGenres();
@@ -77,15 +80,32 @@ function saveTrendMovies(page) {
 //весь масив сторінки трендових фільмів можна завантажити з current localStorage
 function loadTrendMovies() {
     const movies = load(CURRENT_KEY); 
-    console.log("from loadTrendMovies",movies);
+   // console.log("from storage.loadTrendMovies",movies);
     return movies;
 }   
 //loadTrendMovies();
 
-// ****** при ПАГІНАЦІЇ записуємо масив 20 фільмів в localStorage*******
+// ****** для ПАГІНАЦІЇ записуємо кількість сторінок, номер поточної сторінки
+function saveTotalPages(number) {
+    save(TOTAL_KEY, number);
+}   
+//витягуємо кількість сторінок
+function loadTotalPages() {
+    load(TOTAL_KEY);
+} 
 
+//
+function savePage(page) {
+  save(PAGE_KEY, page)   
+  }
+
+function loadPage() {
+  load(PAGE_KEY);
+}
+
+//записуємо масив 20 фільмів в localStorage*******
 function saveCurrentPage(data) { 
-    remove(CURRENT_KEY);
+    //remove(CURRENT_KEY);
     save(CURRENT_KEY, data); //???data.results
 }
 //для рендеринга витягаємо масив фільмів з localStorage
@@ -117,6 +137,10 @@ export default {
     remove, //storage.remove(key) видаляє key /під капотом removeItem/try/catch
   saveGenres,  //storage.saveGenres() при завнтаженні сторінки функція фетчить масив жанрів і записує в сховище
   loadGenres,  //storage.loadGenres() витягає масив жанрів зі сховища
+  saveTotalPages,//storage.saveTotalPages записує кількість сторінок запита
+  loadTotalPages,//storage.loadTotalPages витягає кількість сторінок запита
+  savePage, //storage.savePage(page) записує номер поточної сторінки
+  loadPage,//storage.loadPage() витягає номер поточної сторінки
   saveTrendMovies, //storage.saveTrendMovies(page) зафетчить вказану сторінку трендових фільмів і запише її в сховище
   loadTrendMovies, //storage.loadTrendMovies() для рендерігна  поверне масив трендових фільмів  зі сховища 
   saveCurrentPage, //storage.saveCurrentPage(data)  той хто фетчить той має додати масив фільмів(data) в сховище 
