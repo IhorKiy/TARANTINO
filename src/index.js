@@ -5,4 +5,4 @@ import './js/storage';
 import './js/serviseAPI';
 import './js/onFirstRender';
 import './js/modal_footer';
-import './js/queue';
+import './js/btnUp';
