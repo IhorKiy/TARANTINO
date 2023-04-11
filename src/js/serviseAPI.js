@@ -7,6 +7,20 @@ export class ApiMovie {
   query = '';
   genres = [];
 
+  async fetchMovieWeek(page) {
+    const params = new URLSearchParams({
+      api_key: this.#API_KEY,
+      page: page,
+    });
+
+    try {
+      const { data } = await axios('/trending/movie/week', { params });
+      return data;
+    } catch (error) {
+      console.error('Oops, something wrong: ', error.message);
+    }
+  }
+
   async fetchAllMovie(page) {
     const params = new URLSearchParams({
       api_key: this.#API_KEY,
@@ -22,7 +36,6 @@ export class ApiMovie {
   }
 
   async searchMovieByQuery() {
-    
     const params = new URLSearchParams({
       api_key: this.#API_KEY,
       query: this.query,
@@ -32,7 +45,6 @@ export class ApiMovie {
     const { data } = await axios('/search/movie', { params });
     return data;
   }
-
 
   async fetchMovieById(id) {
     const params = new URLSearchParams({
@@ -67,5 +79,4 @@ export class ApiMovie {
   }
 }
 
-export  const apiMovie = new ApiMovie;
-
+export const apiMovie = new ApiMovie();
