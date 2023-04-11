@@ -1,8 +1,8 @@
 import { getGenresNames } from './getGenresNames';
 
-const movieContainer = document.querySelector('.card__container');
+export const movieContainer = document.querySelector('.card__container');
 
-const insertCardMarkup = movies => {
+const insertCardMarkup = (movies, container) => {
   const cardMarkup = movies
     .map(({ title, release_date, poster_path, genre_ids, first_air_date }) => {
       const getGenreNames = getGenresNames(genre_ids);
@@ -28,7 +28,7 @@ const insertCardMarkup = movies => {
     })
     .join('');
 
-  movieContainer.innerHTML = cardMarkup;
+  container.innerHTML = cardMarkup;
 };
 
 export default insertCardMarkup;
