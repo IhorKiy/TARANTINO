@@ -1,13 +1,9 @@
 import { refs } from "./refs";
 import storage from './storage';
 import { getGenresNames } from './getGenresNames';
-<<<<<<< Updated upstream
-import Notiflix from 'notiflix';
-=======
 import { insertCardMarkup } from './cardMarkup';
 import Notiflix from 'notiflix';
 
->>>>>>> Stashed changes
 
 // const watchedBtn = document.querySelector('.library__nav-btn--watched');
 // const gallery = document.querySelector('.card__container--library'); 
