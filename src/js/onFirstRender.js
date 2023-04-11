@@ -1,5 +1,6 @@
 import { apiMovie } from './serviseAPI';
 import insertCardMarkup from './cardMarkup'
+import storage from './storage';
 
 window.addEventListener('load', onLoad);
 
@@ -17,7 +18,10 @@ async function onLoad(e) {
     } catch (error) {}
   }
   try {
-    const { results } = await apiMovie.fetchAllMovie(1);
+    const { page, results, total_pages } = await apiMovie.fetchAllMovie(1);
+    storage.saveCurrentPage(results);
+    storage.savePage(page);
+    storage.saveTotalPages(total_pages);
     insertCardMarkup(results);
   } catch (error) {
     console.log(error);

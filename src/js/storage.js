@@ -139,6 +139,8 @@ export default {
   loadGenres,  //storage.loadGenres() витягає масив жанрів зі сховища
   saveTotalPages,//storage.saveTotalPages записує кількість сторінок запита
   loadTotalPages,//storage.loadTotalPages витягає кількість сторінок запита
+  savePage,
+  loadPage,
   saveTrendMovies, //storage.saveTrendMovies(page) зафетчить вказану сторінку трендових фільмів і запише її в сховище
   loadTrendMovies, //storage.loadTrendMovies() для рендерігна  поверне масив трендових фільмів  зі сховища 
   saveCurrentPage, //storage.saveCurrentPage(data)  той хто фетчить той має додати масив фільмів(data) в сховище 
