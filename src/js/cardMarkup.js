@@ -1,4 +1,6 @@
 import { getGenresNames } from './getGenresNames';
+import { refs } from './refs';
+import storage from './storage';
 
 const movieContainer = document.querySelector('.card__container');
 
@@ -22,7 +24,10 @@ const insertCardMarkup = movies => {
     <div class=img__wrapper><img class=film_poster src=https://image.tmdb.org/t/p/original${poster_path} width= 50 height= 50 alt= ${title}/></div>
     <div class="film_info">
     <p class=film_name>${title}</p>
-    <p class=film_genre>${getGenreNames} ${releaseDate.slice(0, 4)}</p>
+    <p class=film_genre>${getGenreNames} <span class=line>|<span> ${releaseDate.slice(
+        0,
+        4
+      )}</p>
             </div>
    
     </li>`;
