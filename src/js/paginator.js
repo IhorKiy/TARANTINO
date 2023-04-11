@@ -24,7 +24,7 @@ export default class Paginator {
 
     if (this.currentPage > this.pages[2] && this.totalPages !== this.pages[4] && this.currentPage > this.previousPage) {
       this.pages.push(this.pages[4] + 1);
-      this.pages.shift( );
+      this.pages.shift();
     }
 
     if (this.currentPage < this.pages[2] && this.pages[0] !== 1 && this.currentPage < this.previousPage) {
@@ -33,7 +33,7 @@ export default class Paginator {
     }
 
     this.pages.forEach(page => {
-      
+
       if (page === this.currentPage) {
         markup += `<li class="current">${page}</li>`;
       } else {
@@ -55,7 +55,7 @@ export default class Paginator {
 
   getNumber(event) {
     const action = event.target.outerText;
-       if (action === 'Next' && this.currentPage < this.totalPages) {
+    if (action === 'Next' && this.currentPage < this.totalPages) {
       this.previousPage = this.currentPage;
       this.currentPage += 1;
       this.makeMarkup();
@@ -72,5 +72,9 @@ export default class Paginator {
     return null;
   }
 
+  refresh() {
+    this.currentPage = 1;
+    this.makeMarkup();
+  }
 
 };

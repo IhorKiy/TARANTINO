@@ -8,12 +8,30 @@ const a = new Paginator();
 
 
 window.addEventListener('load', onLoad);
+
+const searchForm = document.querySelector('.header__form');
+searchForm.addEventListener('submit', e => {
+  e.preventDefault();
+  a.refresh();
+});
+
 a.pagination.addEventListener('click', e => {
-  console.log(e);
-  a.getNumber(e);
-  console.log(a);
+   
+  const nextPage = a.getNumber(e);
+  if (nextPage) {
+ 
+    async function secondLoad(pages) {
+      const { page, results, total_pages } = await apiMovie.fetchAllMovie(pages);
+      insertCardMarkup(results, movieContainer);
+    }
+
+    secondLoad(nextPage);
+  }
+  
 
 })
+
+
 
 async function onLoad(e) {
   e.preventDefault();
@@ -30,15 +48,13 @@ async function onLoad(e) {
   }
   try {
     const { page, results, total_pages } = await apiMovie.fetchAllMovie(a.currentPage);
-    storage.saveCurrentPage(results);
-    storage.savePage(page);
-    storage.saveTotalPages(total_pages);
+    // storage.saveCurrentPage(results);
+    // storage.savePage(page);
+    // storage.saveTotalPages(total_pages);
     a.totalPages = total_pages;
-    // a.totalPages
-    a.makeMarkup();
-    a.getNumber(a.pagination);
-    console.log(a);
     insertCardMarkup(results, movieContainer);
+    a.makeMarkup();
+    
   } catch (error) {
     console.log(error);
   }
