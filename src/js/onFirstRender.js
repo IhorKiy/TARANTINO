@@ -22,7 +22,7 @@ async function onLoad(e) {
     storage.saveCurrentPage(results);
     storage.savePage(page);
     storage.saveTotalPages(total_pages);
-    insertCardMarkup(results);
+    insertCardMarkup(results, movieContainer);
   } catch (error) {
     console.log(error);
   }
