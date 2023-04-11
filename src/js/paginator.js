@@ -43,8 +43,7 @@ export default class Paginator {
 
   getNumber(event) {
     const action = event.target.outerText;
-
-    if (action === 'Next' && this.currentPage < this.totalPages) {
+       if (action === 'Next' && this.currentPage < this.totalPages) {
       this.previousPage = this.currentPage;
       this.currentPage += 1;
       this.makeMarkup();
@@ -55,7 +54,7 @@ export default class Paginator {
       this.previousPage = this.currentPage;
       this.currentPage -= 1;
       this.makeMarkup();
-      return this.currnetPage;
+      return this.currentPage;
     }
 
   }
