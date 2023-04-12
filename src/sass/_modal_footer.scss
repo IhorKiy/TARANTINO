@@ -215,8 +215,8 @@
   transition: 0.3s all;
 }
 
-.footer2-modal.active,
-.overlay.active {
+.footer2-modal.active-footer,
+.overlay.active-footer {
   opacity: 1;
   visibility: visible;
 }

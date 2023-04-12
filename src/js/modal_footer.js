@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
          var modalId = this.getAttribute('data-modal'),
             modalElem = document.querySelector('.footer2-modal[data-modal="' + modalId + '"]');
-            modalElem.classList.add('active');
-            overlay.classList.add('active');
+            modalElem.classList.add('active-footer');
+            overlay.classList.add('active-footer');
       });
 
    });
@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
       item.addEventListener('click', function(e) {
          var parentModal = this.closest('.footer2-modal');
 
-         parentModal.classList.remove('active');
-         overlay.classList.remove('active');
+         parentModal.classList.remove('active-footer');
+         overlay.classList.remove('active-footer');
       });
 
    });
@@ -36,16 +36,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
    //    if (key == 27) {
 
-   //          document.querySelector('.footer2-modal.active').classList.remove('active');
-   //          document.querySelector('.overlay').classList.remove('active');
+   //          document.querySelector('.footer2-modal.active-footer').classList.remove('active-footer');
+   //          document.querySelector('.overlay').classList.remove('active-footer');
    //       };
    //    }, false);
 
 
-   overlay.addEventListener('click', function() {
-         document.querySelector('.footer2-modal.active').classList.remove('active');
-         this.classList.remove('active');
-      });
+   // overlay.addEventListener('click', function() {
+   //       document.querySelector('.footer2-modal.active-footer').classList.remove('active-footer');
+   //       this.classList.remove('active-footer');
+   //    });
 
 });
 
@@ -75,8 +75,8 @@ document.addEventListener('DOMContentLoaded', function() {
 //              modalElem = document.querySelector('.modal[data-modal="' + modalId + '"]');
 
          
-//          modalElem.classList.add('active');
-//          overlay.classList.add('active');
+//          modalElem.classList.add('active-footer');
+//          overlay.classList.add('active-footer');
 //       });
 
 //    });
@@ -86,8 +86,8 @@ document.addEventListener('DOMContentLoaded', function() {
 //       item.addEventListener('click', function(e) {
 //          var parentModal = this.closest('.modal');
 
-//          parentModal.classList.remove('active');
-//          overlay.classList.remove('active');
+//          parentModal.classList.remove('active-footer');
+//          overlay.classList.remove('active-footer');
 //       });
 
 //    });
@@ -97,15 +97,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //    //    if (key == 27) {
 
-//    //          document.querySelector('.modal.active').classList.remove('active');
-//    //          document.querySelector('.overlay').classList.remove('active');
+//    //          document.querySelector('.modal.active-footer').classList.remove('active-footer');
+//    //          document.querySelector('.overlay').classList.remove('active-footer');
 //    //       };
 //    //    }, false);
 
 
 //    overlay.addEventListener('click', function() {
-//          document.querySelector('.modal.active').classList.remove('active');
-//          this.classList.remove('active');
+//          document.querySelector('.modal.active-footer').classList.remove('active-footer');
+//          this.classList.remove('active-footer');
 //       });
 
 // });
