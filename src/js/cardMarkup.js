@@ -5,7 +5,7 @@ const movieContainer = document.querySelector('.card__container');
 
 const insertCardMarkup = (movies, container) => {
   const cardMarkup = movies
-    .map(({ title, release_date, poster_path, genre_ids, first_air_date }) => {
+    .map(({ id, title, release_date, poster_path, genre_ids, first_air_date }) => {
       const getGenreNames = getGenresNames(genre_ids);
       const movieData = {
         release_date,
@@ -18,7 +18,7 @@ const insertCardMarkup = (movies, container) => {
         releaseDate = movieData.first_air_date.slice(0, 4);
       }
       return `
-    <li class=film_card>
+    <li id=${id}class=film_card>
     <div class=img__wrapper><img class=film_poster src=https://image.tmdb.org/t/p/original${poster_path} width= 50 height= 50 alt= ${title}/></div>
     <div class="film_info">
     <p class=film_name>${title}</p>
