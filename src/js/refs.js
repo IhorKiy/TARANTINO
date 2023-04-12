@@ -15,3 +15,5 @@ export const refs = {
     addToWatchedBtn: document.querySelector('.modal__film-btn.watched'), //клас кнопки ADD TO WATCHED
     addToQueueBtn : document.querySelector('.modal__film-bt.queue'),  // клас кнопки ADD TO QUEUE
 }
+
+   
