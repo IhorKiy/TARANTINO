@@ -1,64 +1,21 @@
 import { refs } from './refs';
 import storage from './storage';
 import { getGenresNames } from './getGenresNames';
+import insertCardMarkup from './cardMarkup';
+import Notiflix from 'notiflix';
 
-// const refs = {
-//   library: document.querySelector('.card__container--library'),//тепер refs.libraryContainer
-//   queueBtn: document.querySelector('.library__nav-btn--queue'),//тепер refs.queueBtn
-// };
-
+const gallery = refs.libraryContainer;
 const queue = storage.loadFromQueue() || [];
 
-
-// refs.queueBtn.addEventListener('click', showQueue);
-
+if (refs.queueBtn) {
+  refs.queueBtn.addEventListener('click', showQueue);
+}
 
 function showQueue() {
   if (!queue || !queue.length) {
-    library.innerHTML = `
-      <li class="nothing">
-        <img src="" alt="There's nothing to see here" />
-      </li>`;
+    Notiflix.Notify.failure('Oops, empty!');
     return;
+  } else {
+    insertCardMarkup(queue, gallery);
   }
-
-  const data = queue
-    .map(item => {
-      const {
-        title = '',
-        release_date = '',
-        poster_path = '',
-        genre_ids = [],
-        first_air_date = '',
-      } = item;
-
-      const getGenreNames = getGenresNames(genre_ids);
-
-      const movieData = {
-        release_date: release_date || '',
-        first_air_date: first_air_date || '',
-      };
-
-      let releaseYear = '';
-      if (movieData.release_date) {
-        releaseYear = movieData.release_date.slice(0, 4);
-      } else if (movieData.first_air_date) {
-        releaseYear = movieData.first_air_date.slice(0, 4);
-      }
-
-      return `
-        <li class="film_card">
-          <img class="film_poster" src="https://image.tmdb.org/t/p/original${poster_path}" width="50" height="50" alt="${title}">
-          <p class="film_name">${title}</p>
-          <p class="movie_genre">${getGenreNames} ${releaseYear}</p>
-        </li>
-      `;
-    })
-    .join('');
-  
-
-  refs.libraryContainer.innerHTML = data;
 }
-
-
-
