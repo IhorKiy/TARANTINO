@@ -42,28 +42,14 @@ const remove = key => {
 //перед load,save,remove ставити storage.
 
 //в index коли submit  разово фетчить і записує масив жанрів в localStorage
-function saveGenres() {
+function saveGenres(genres) {
     //*******ЖАНРИ******
-    //записуємо  масив жанрів в localStorage якщо його ще нема  в  GENRES 
-    let arrayGenres = load(GENRES_KEY);//витягуємо з localStorage масив жанрів [{id=12,name="adventure"},{}...]
-    if (arrayGenres === [] || !arrayGenres || arrayGenres === {}) {
-        apiMovie.fetchGenres()
-            .then((data) => {
-                const genres = data.genres;
-                save(GENRES_KEY, genres);
-        
-            })
-            .catch((error) => console.log(error.message));
-    }
-}
+    //записуємо перероблений масив жанрів в localStorage якщо його ще нема  в  GENRES 
+      save(GENRES_KEY, genres);
+ }
 //saveGenres(); //записуюємо користувачу в localStorage список жанрів
 function loadGenres() {
-    const arrayGenres = load(GENRES_KEY);
-    if (!arrayGenres) {
-        saveGenres();
-    }
-   // console.log("from storage.loadGenres",arrayGenres);
-    return arrayGenres;
+  return load(GENRES_KEY);
  }
 //loadGenres();
 // при загрузці сторінки очищуємо current в localStorage  і записуємо масив трендових фільмів заданої сторінки
