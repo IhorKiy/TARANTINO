@@ -8,43 +8,50 @@ import onFirstRender from './onFirstRender';
 import { getGenresNames } from './getGenresNames';
 import imagePlaceholder from '../images/image-placeholder.png';
 
-const filmCardRefs = document.querySelector('.card__container');
+// const filmCardRefs = document.querySelector('.film__card');
 const modalRefs = document.querySelector('.modal');
 const overlayRefs = document.querySelector('.overlay');
 const overlay = document.querySelector('.overlay');
 const modal = document.querySelector('.modal');
 const movieContainer = document.querySelector('.card__container');
 
-filmCardRefs.addEventListener('click', openModalMovie);
-console.log(filmCardRefs);
+// filmCardRefs.addEventListener('click', openModalMovie);
+movieContainer.addEventListener('click', openModalMovie);
+// console.log(filmCardRefs);
 
 // async
 function openModalMovie(event) {
   event.preventDefault();
-  if (
-    event.target.nodeName === 'P' &&
-    event.target.classList.contains('film-name')
-  ) {
-    const title = event.target.textContent;
-  }
-  if (
-    event.target.nodeName === 'P' &&
-    event.target.classList.contains('film-genre')
-  ) {
-    title = event.target.previousElementSibling.textContent;
-  }
-  if (event.target.nodeName === 'IMG') {
-    title =
-      event.target.parentNode.nextElementSibling.firstElementChild.textContent;
-  } else return;
+  event.target.parentNode.dataset.id;
+  event.target.parentNode.id;
+
+  // if (
+  //   event.target.nodeName === 'P' &&
+  //   event.target.classList.contains('film-name')
+  // ) {
+  //   const title = event.target.textContent;
+  // }
+  // if (
+  //   event.target.nodeName === 'P' &&
+  //   event.target.classList.contains('film-genre')
+  // ) {
+  //   title = event.target.previousElementSibling.textContent;
+  // }
+  // if (event.target.nodeName === 'IMG') {
+  //   title =
+  //     event.target.parentNode.nextElementSibling.firstElementChild.textContent;
+  // } else return;
   // console.log(title);
 
   openModalView();
 
   const movies = storage.load('current');
-  // console.log(movies);
-  const movieData = movies.find(movie => movie.title === title);
-  // console.log(movieData);
+  console.log(movies);
+  // const movieData = movies.find(movie => movie.title === title);
+  const movieData = movies.find(
+    movie => movie.id === event.target.parentNode.id
+  );
+  console.log(movieData);
 
   renderMovieDataToModal(movieData);
 }
