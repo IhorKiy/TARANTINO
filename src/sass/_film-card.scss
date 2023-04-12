@@ -68,6 +68,7 @@
   // white-space: nowrap;
   width: 100%;
   overflow: hidden;
+  color: #fff;
 }
 .film_genre {
   width: 100%;
@@ -79,24 +80,24 @@
 }
 
 .img__wrapper {
-  width: 280px;
-  height: 402px;
+  // width: 280px;
+  // height: 402px;
   overflow: hidden;
   margin: 0;
   border-radius: 5px;
   @media screen and(min-width: 768px) {
-    width: 336px;
-    height: 495px;
+    // width: 336px;
+    // height: 495px;
   }
   @media screen and (min-width: 1280px) {
-    width: 394px;
-    height: 574px;
+    // width: 394px;
+    // height: 574px;
   }
 }
 
 .film_card {
-  // width: 280px;
-  // height: 440px;
+  width: 280px;
+  height: 440px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -112,14 +113,14 @@
   }
 
   @media screen and(min-width: 768px) {
-    // width: 336px;
-    // height: 495px;
+    width: 336px;
+    height: 495px;
     flex-basis: calc((100% - 30px) / 2);
     gap: 8px;
   }
   @media screen and (min-width: 1280px) {
-    // width: 395px;
-    // height: 634px;
+    width: 395px;
+    height: 634px;
     flex-basis: calc((100% - 30px * 2) / 3);
     gap: 12px;
   }
