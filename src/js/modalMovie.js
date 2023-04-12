@@ -22,9 +22,11 @@ movieContainer.addEventListener('click', openModalMovie);
 // async
 function openModalMovie(event) {
   event.preventDefault();
-  event.target.parentNode.dataset.id;
-  event.target.parentNode.id;
 
+  event.target.parentNode.id;
+  if (event.target.parentNode.contains('id')) {
+    const id = e.target.dataset.id;
+  }
   // if (
   //   event.target.nodeName === 'P' &&
   //   event.target.classList.contains('film-name')
@@ -48,6 +50,7 @@ function openModalMovie(event) {
   const movies = storage.load('current');
   console.log(movies);
   // const movieData = movies.find(movie => movie.title === title);
+
   const movieData = movies.find(
     movie => movie.id === event.target.parentNode.id
   );
