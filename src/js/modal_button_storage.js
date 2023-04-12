@@ -10,18 +10,21 @@ const removeQueue = "REMOVE FROM QUEUE";
 
 
 const movie = movieData;
+console.log("movie from movieData", movie);
+console.log("refs.addToWatchedBtn ", refs.addToWatchedBtn);
+console.log("refs.addToQueueBtn ", refs.addToQueueBtn );
 //************************************* */
 
 //перевіряє чи Є цей movie в сховищі WATCHED і дає кнопці відповіний напис
-function isWatched(movie,btn){
+export function isWatched(movie,btn){
     const movies = storage.load(WATCHED_KEY);
     if (!movies.includes(movie)) {
-         btn.textContent = addWatched;  //чи додавати відповідний клас
+          btn.textContent = addWatched;
     }
-     else btn.textContent = removeWatched; //чи додавати відповідний клас?
+     else btn.textContent = removeWatched; 
 }
 //перевіряє чи Є цей movie в сховищі QUEUE і дає кнопці відповіний напис?
-function isQueue(movie,btn) {
+export function isQueue(movie,btn) {
     const movies = storage.load(QUEUE_KEY);
     if (!movies.includes(movie)) {
          btn.textContent = addQueue; //чи додавати відповідний клас?
@@ -30,9 +33,9 @@ function isQueue(movie,btn) {
 }
 //при відкритті модалки перевіряємо чи movie Є в сховищі по
 //по ключах в масивах WATCHED/QUEUE і даємо відповідний напис на кнопках
-//ВИКЛИКАЮТЬСЯ В modalMovie
-// isWatched(movie, addToWatchedBtn);
-// isQueue(movie, addToQueueBtn);
+//ВИКЛИКАЮТЬСЯ В modalMovie Костею
+// isWatched(movie, refs.addToWatchedBtn);
+// isQueue(movie, refs.addToQueueBtn);
 //в залежності що написано на кнопках => різні функції fWatched, fQueue на лісенери
 let fWatched, fQueue;
 
@@ -48,6 +51,7 @@ if (refs.btnQueue.textContent === addQueue) {
 }
 //вішаємо лісенери на кнопки і функціі для них
 refs.addToWatchedBtn.addEventListener("click", fWatched);
+
 refs.addToQueueBtn.addEventListener("click", fQueue);   
 
 //при натисненні ADD TO WATCHED додаємо movie в localStorage якщо там його нема
