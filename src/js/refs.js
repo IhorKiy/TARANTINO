@@ -12,6 +12,8 @@ export const refs = {
   libraryContainer: document.querySelector('.card__container--library'),
   queueBtn: document.querySelector('.library__nav-btn--queue'),
   watchedBtn: document.querySelector('.library__nav-btn--watched'),
-  // addToWatchedBtn: document.querySelector('.'), //клас кнопки ADD TO WATCHED
-  // addToQueueBtn : document.querySelector('.'),  // клас кнопки ADD TO QUEUE
+  addToWatchedBtn: document.querySelector('.modal__film-btn.watched'), //клас кнопки ADD TO WATCHED
+  addToQueueBtn : document.querySelector('.modal__film-btn.queue'),  // клас кнопки ADD TO QUEUE
 };
+/* <button class="modal__film-btn watched"
+<button class="modal__film-btn queue" */

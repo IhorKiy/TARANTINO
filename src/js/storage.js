@@ -5,7 +5,7 @@ import { apiMovie } from "./serviseAPI";
 //ключі для сховища
 
 const PAGE_KEY = "page";       //номер поточної сторінки
-const TOTAL_KEY = "total";     //кількість сторінок після запиту
+const TOTAL_KEY = "total_pages";     //кількість сторінок після запиту
 const CURRENT_KEY = "current"; //тут масив зафетчиних фільмів
 const WATCHED_KEY = "watched"; //тут масив переглянутих фільмів
 const QUEUE_KEY = "queue";     //тут масив фільмів для майьутнього перегляду
