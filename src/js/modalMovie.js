@@ -23,10 +23,13 @@ movieContainer.addEventListener('click', openModalMovie);
 function openModalMovie(event) {
   event.preventDefault();
 
-  event.target.parentNode.id;
-  if (event.target.parentNode.contains('id')) {
-    const id = e.target.dataset.id;
-  }
+  // event.target.parentNode.id;
+  // console.log(event.target.closest('.film_card').id);
+
+  // if (event.target.parentNode.contains('id')) {
+  //   const id = e.target.dataset.id;
+  // }
+
   // if (
   //   event.target.nodeName === 'P' &&
   //   event.target.classList.contains('film-name')
@@ -52,7 +55,7 @@ function openModalMovie(event) {
   // const movieData = movies.find(movie => movie.title === title);
 
   const movieData = movies.find(
-    movie => movie.id === event.target.parentNode.id
+    movie => movie.id === Number(event.target.closest('.film_card').id)
   );
   console.log(movieData);
 
@@ -106,10 +109,10 @@ function renderMovieDataToModal({
       </p>
       <ul class="modal__film-btn-List">
         <li class="modal__film-btn-item">
-          <button class="modal__film-btn watched">ADD TO WATCHED</button>
+          <button type="button" class="modal__film-btn watched">ADD TO WATCHED</button>
         </li>
         <li class="modal__film-btn-item">
-          <button class="modal__film-btn queue">ADD TO QUEUE</button>
+          <button type="button" class="modal__film-btn queue">ADD TO QUEUE</button>
         </li>
       </ul>
     </div>
