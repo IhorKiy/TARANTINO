@@ -11,3 +11,4 @@ import './js/queue';
 import './js/searchQuery';
 import './js/top-slider';
 import './js/sliderMarkup';
+import './js/modalMovie';
