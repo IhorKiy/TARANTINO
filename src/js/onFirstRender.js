@@ -44,7 +44,7 @@ async function onLoad(e) {
     } catch (error) {}
   }
   try {
-    const { results } = await apiMovie.fetchMovieWeek(1);
+    const { results } = await apiMovie.fetchAllMovie(paginator.currentPage + 1);
 
     insertSliderMarkup(results);
   } catch (error) {
@@ -57,7 +57,7 @@ async function onLoad(e) {
     storage.saveCurrentPage(results);
     storage.savePage(page);
     storage.saveTotalPages(total_pages);
-    paginator.totalPages = total_pages;
+    paginator.totalPages = total_pages - 1;
     // insertSliderMarkup(results)
     insertCardMarkup(results, movieContainer);
     paginator.makeMarkup();
