@@ -10,23 +10,27 @@ const removeQueue = "REMOVE FROM QUEUE";
 
 
 const movie = movieData;
+console.log("movie", movie);
+console.log("refs.addToWatchedBtn", refs.addToWatchedBtn);
+console.log("refs.refs.addToQueueBtn", refs.refs.addToQueueBtn);
+
 //************************************* */
 
 //перевіряє чи Є цей movie в сховищі WATCHED і дає кнопці відповіний напис
 function isWatched(movie,btn){
-    const movies = storage.load(WATCHED_KEY);
+    const movies = storage.load(WATCHED_KEY); //це розпарсений  масив JS обєктів
     if (!movies.includes(movie)) {
-         btn.textContent = addWatched;  //чи додавати відповідний клас
+         btn.textContent = addWatched;  
     }
-     else btn.textContent = removeWatched; //чи додавати відповідний клас?
+     else btn.textContent = removeWatched; 
 }
 //перевіряє чи Є цей movie в сховищі QUEUE і дає кнопці відповіний напис?
 function isQueue(movie,btn) {
     const movies = storage.load(QUEUE_KEY);
     if (!movies.includes(movie)) {
-         btn.textContent = addQueue; //чи додавати відповідний клас?
+         btn.textContent = addQueue; 
     }
-     else btn.textContent = removeQueue; //чи додавати відповідний клас?
+     else btn.textContent = removeQueue; 
 }
 export { isWatched, isQueue };
 //при відкритті модалки перевіряємо чи movie Є в сховищі по
