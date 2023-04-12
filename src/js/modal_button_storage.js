@@ -28,6 +28,7 @@ function isQueue(movie,btn) {
     }
      else btn.textContent = removeQueue; //чи додавати відповідний клас?
 }
+export { isWatched, isQueue };
 //при відкритті модалки перевіряємо чи movie Є в сховищі по
 //по ключах в масивах WATCHED/QUEUE і даємо відповідний напис на кнопках
 //ВИКЛИКАЮТЬСЯ В modalMovie
@@ -67,7 +68,7 @@ function removeFromWatched (movie,btn){ //btn це ref на кнопку в мо
         movies = movies.filter(({ id }) => id !== movie.id)
         storage.save(WATCHED_KEY, movies);
          btn.textContent = addWatched;
-    } else console.log('Цього фільма нема в watched або кнопка НЕ REMOVE!');
+    } else console.log('Цього фільма нема в watched або кнопка НЕ REMOVE!');gi
 }
 
 //при натисненні ADD TO QUEUE додаємо в localStorage якщо там його нема
