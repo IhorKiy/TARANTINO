@@ -1,7 +1,7 @@
 import { refs } from "./refs";
 import storage from './storage';
 import { getGenresNames } from './getGenresNames';
-import { insertCardMarkup } from './cardMarkup';
+import insertCardMarkup from './cardMarkup';
 import Notiflix from 'notiflix';
 
 // const watchedBtn = document.querySelector('.library__nav-btn--watched');
