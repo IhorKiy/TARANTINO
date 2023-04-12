@@ -12,3 +12,4 @@ import './js/searchQuery';
 import './js/top-slider';
 import './js/sliderMarkup';
 import './js/modalMovie';
+import './js/trailer';
