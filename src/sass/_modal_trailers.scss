@@ -1,0 +1,27 @@
+.overlay--trailer {
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1200;
+}
+
+.overlay--trailer.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.iframe {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @media screen and (max-width: 768px) {
+    width: 280px;
+    height: 160px;
+  }
+}
