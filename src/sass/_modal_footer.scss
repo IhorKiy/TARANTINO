@@ -1,15 +1,15 @@
 
 .modal_footer__text {
-  font-weight: 700;
+  
   font-size: 20px;
   line-height: calc(23 / 20);
   text-align: center;
   letter-spacing: 0.03em;
   margin-bottom: 10px;
   font-family: 'Roboto';
-  font-style: normal;
-  color: #141414;
-  
+  font-style: italic;
+    font-weight: 700;
+    color: #4e4b4b;
 }
 
 .modal_footer__container {
@@ -73,8 +73,8 @@
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  margin-right: 15px;
+  margin-bottom: 15px;
 
   @media screen and (max-width: 767px) {
     margin-right: 0;
@@ -170,7 +170,7 @@
   fill: currentColor;
 }
 
-.overlay {
+.over {
   opacity: 0;
   visibility: hidden;
   position: fixed;
@@ -195,11 +195,12 @@
     transition: transform 250ms;
 
     @media screen and (min-width: 768px) {
-      width: 515px;
+      width: 510px;
       height: 700px;
     }
     @media screen and (min-width: 1280px) {
-      width: 964px;
+      width: 949px;
+      height: 650px;
     }
   opacity: 0;
   visibility: hidden;
@@ -216,19 +217,30 @@
 }
 
 .footer2-modal.active-footer,
-.overlay.active-footer {
+.over.active-footer {
   opacity: 1;
   visibility: visible;
 }
 
-.modal__cross {
+.modal__cross-footer {
   width: 15px;
   height: 15px;
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 15px;
+  left: 15px;
   fill: #444;
   cursor: pointer;
+  
+  @media screen and (max-width: 767px) {
+      width: 13px;
+      height: 13px;
+      top: 13px;
+      left: 13px;
+    }
+
 }
 
+.modal__cross-footer:hover {
+  fill: #f2280d;
+}
 
