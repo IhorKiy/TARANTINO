@@ -7,20 +7,6 @@ export class ApiMovie {
   query = '';
   genres = [];
 
-  async fetchMovieWeek(page) {
-    const params = new URLSearchParams({
-      api_key: this.#API_KEY,
-      page: page,
-    });
-
-    try {
-      const { data } = await axios('/trending/movie/week', { params });
-      return data;
-    } catch (error) {
-      console.error('Oops, something wrong: ', error.message);
-    }
-  }
-
   async fetchAllMovie(page) {
     const params = new URLSearchParams({
       api_key: this.#API_KEY,
@@ -76,6 +62,20 @@ export class ApiMovie {
     const { data } = await axios('/genre/movie/list', { params });
     this.genres = data.genres;
     return data;
+  }
+
+  async fetchMovieByGenre(genreId) {
+    const params = new URLSearchParams({
+      api_key: this.#API_KEY,
+      with_genres: genreId,
+    });
+
+    try {
+      const { data } = await axios('/discover/movie', { params });
+      return data;
+    } catch (error) {
+      console.error('Oops, something wrong: ', error.message);
+    }
   }
 }
 
