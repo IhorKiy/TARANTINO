@@ -13,3 +13,5 @@ import './js/top-slider';
 import './js/sliderMarkup';
 import './js/modalMovie';
 import './js/trailers';
+import './js/modal_button_storage';
+import './js/renderWatched';
