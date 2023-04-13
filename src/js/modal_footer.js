@@ -3,9 +3,9 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 
-   var modalButtons = document.querySelectorAll('.js-open-modal'),
-         overlay      = document.querySelector('.js-overlay-modal'),
-         closeButtons = document.querySelectorAll('.js-modal-close');
+   var modalButtons = document.querySelectorAll('.footer-js-open-modal'),
+         over     = document.querySelector('.footer-js-overlay-modal'),
+         closeButtons = document.querySelectorAll('.footer-js-modal-close');
 
 
    modalButtons.forEach(function(item){
@@ -15,10 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
          var modalId = this.getAttribute('data-modal'),
             modalElem = document.querySelector('.footer2-modal[data-modal="' + modalId + '"]');
             modalElem.classList.add('active-footer');
-            overlay.classList.add('active-footer');
+            over.classList.add('active-footer');
       });
 
-   });
+   }); 
 
    closeButtons.forEach(function(item){
 
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
          var parentModal = this.closest('.footer2-modal');
 
          parentModal.classList.remove('active-footer');
-         overlay.classList.remove('active-footer');
+         over.classList.remove('active-footer');
       });
 
    });
@@ -35,17 +35,18 @@ document.addEventListener('DOMContentLoaded', function() {
    //    var key = e.keyCode;
 
    //    if (key == 27) {
-
+         
+      
    //          document.querySelector('.footer2-modal.active-footer').classList.remove('active-footer');
-   //          document.querySelector('.overlay').classList.remove('active-footer');
+   //          document.querySelector('.over').classList.remove('active-footer');
    //       };
    //    }, false);
 
 
-   // overlay.addEventListener('click', function() {
-   //       document.querySelector('.footer2-modal.active-footer').classList.remove('active-footer');
-   //       this.classList.remove('active-footer');
-   //    });
+   over.addEventListener('click', function() {
+         document.querySelector('.footer2-modal.active-footer').classList.remove('active-footer');
+         this.classList.remove('active-footer');
+      });
 
 });
 
