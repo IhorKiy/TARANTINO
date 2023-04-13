@@ -3,7 +3,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 
-   var modalButtons = document.querySelectorAll('.footer-js-open-modal'),
+   const modalButtons = document.querySelectorAll('.footer-js-open-modal'),
          over     = document.querySelector('.footer-js-overlay-modal'),
          closeButtons = document.querySelectorAll('.footer-js-modal-close');
 
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
       item.addEventListener('click', function(e) {
          e.preventDefault();
 
-         var modalId = this.getAttribute('data-modal'),
+         const modalId = this.getAttribute('data-modal'),
             modalElem = document.querySelector('.footer2-modal[data-modal="' + modalId + '"]');
             modalElem.classList.add('active-footer');
             over.classList.add('active-footer');
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
    closeButtons.forEach(function(item){
 
       item.addEventListener('click', function(e) {
-         var parentModal = this.closest('.footer2-modal');
+         const parentModal = this.closest('.footer2-modal');
 
          parentModal.classList.remove('active-footer');
          over.classList.remove('active-footer');
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
    });
 
    // document.body.addEventListener('keyup', function (e) {
-   //    var key = e.keyCode;
+   //    const key = e.keyCode;
 
    //    if (key == 27) {
          
@@ -43,10 +43,10 @@ document.addEventListener('DOMContentLoaded', function() {
    //    }, false);
 
 
-   over.addEventListener('click', function() {
-         document.querySelector('.footer2-modal.active-footer').classList.remove('active-footer');
-         this.classList.remove('active-footer');
-      });
+   // over.addEventListener('click', function() {
+   //       document.querySelector('.footer2-modal.active-footer').classList.remove('active-footer');
+   //       this.classList.remove('active-footer');
+   //    });
 
 });
 
