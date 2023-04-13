@@ -20,11 +20,17 @@ console.log("refs.addToQueueBtn ", refs.addToQueueBtn );
 export function isWatched(movie,btn){
     const movies = storage.load(WATCHED_KEY) ||  [];
     if (!movies.includes(movie)) {
+<<<<<<< HEAD
         btn.textContent = addWatched;
         return true;
     }
     else btn.textContent = removeWatched; 
     return false;
+=======
+          btn.textContent = addWatched;
+    }
+     else btn.textContent = removeWatched; 
+>>>>>>> f6183c501063320e27d1e9ee39aefc394c45db1c
 }
 //перевіряє чи Є цей movie в сховищі QUEUE і дає кнопці відповіний напис?
 export function isQueue(movie,btn) {
