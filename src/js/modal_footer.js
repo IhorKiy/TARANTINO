@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
    // document.body.addEventListener('keyup', function (e) {
    //    const key = e.keyCode;
 
-   //    if (key == 27) {
+   //    if (e.keyCode === 27) {
          
       
    //          document.querySelector('.footer2-modal.active-footer').classList.remove('active-footer');
