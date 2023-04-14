@@ -125,7 +125,7 @@ function openModalMovie(event) {
       event.target.textContent = 'ADD TO WATCHED';
 
       if (
-        libraryBtn.classList.contains('current') &&
+        refs.libraryBtn.classList.contains('current') &&
         watchedBtnAdd.classList.contains('active')
       ) {
         const moviesArr = window.localStorage.getItem('wathedArr');
@@ -157,7 +157,7 @@ function fQueue(event) {
     // const container = document.querySelector('#container'); // выберите контейнер
 
     if (
-      libraryBtn.classList.contains('current') ||
+      refs.libraryBtn.classList.contains('current') ||
       refs.addToQueueBtn.classList.contains('current')
     ) {
       const queuryArr = window.localStorage.getItem('queueArr');
