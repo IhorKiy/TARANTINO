@@ -5,13 +5,15 @@ import storage from './storage';
 import { refs } from './refs';
 import Paginator from './paginator';
 import Loader from './loader';
+import { getGenresNames } from './getGenresNames';
 
 const paginator = new Paginator();
 
 const loader = new Loader();
 
-paginator.pagination.addEventListener('click', onClickPagination);
-
+if (paginator.pagination) {
+  paginator.pagination.addEventListener('click', onClickPagination);
+}
 export function onClickPagination(e) {
   paginator.getNumber(e);
   loader.enable();
@@ -30,6 +32,48 @@ window.addEventListener('load', onLoad);
 
 async function onLoad(e) {
   e.preventDefault();
+  if (refs.libraryBtn.classList.contains('current')) {
+    const getLibraryData = localStorage.getItem('queueArr');
+    const getLibraryDataParse = JSON.parse(getLibraryData);
+    console.log(getLibraryDataParse);
+
+    const cardMarkup = getLibraryDataParse
+      .map(
+        ({
+          id,
+          title,
+          release_date,
+          poster_path,
+          genre_ids,
+          first_air_date,
+        }) => {
+          const getGenreNames = getGenresNames(genre_ids);
+          const movieData = {
+            release_date,
+            first_air_date,
+          };
+          let releaseDate = '';
+          if (movieData.release_date) {
+            releaseDate = movieData.release_date.slice(0, 4);
+          } else if (movieData.first_air_date) {
+            releaseDate = movieData.first_air_date.slice(0, 4);
+          }
+          return `
+        <li id=${id} class=film_card>
+        <div class=img__wrapper><img class=film_poster src=https://image.tmdb.org/t/p/original${poster_path} width= 50 height= 50 alt= ${title}/></div>
+        <div class="film_info">
+        <p class=film_name>${title}</p>
+        <p class=film_genre>${getGenreNames} <span class=line>|<span> ${releaseDate}</p>
+                </div>
+
+        </li>`;
+        }
+      )
+      .join('');
+    const LibaCont = document.querySelector('.library__container');
+    LibaCont.innerHTML = cardMarkup;
+    return;
+  }
   if (!storage.loadGenres()) {
     //if (!window.localStorage.getItem('genres')) {
     try {
@@ -58,7 +102,14 @@ async function onLoad(e) {
     storage.savePage(page);
     storage.saveTotalPages(total_pages);
     paginator.totalPages = total_pages;
+    if (!localStorage.getItem('wathedArr')) {
+      localStorage.setItem('wathedArr', JSON.stringify([]));
+    }
+    if (!localStorage.getItem('queueArr')) {
+      localStorage.setItem('queueArr', JSON.stringify([]));
+    }
     // insertSliderMarkup(results)
+
     insertCardMarkup(results, movieContainer);
     paginator.makeMarkup();
   } catch (error) {
