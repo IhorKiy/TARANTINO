@@ -15,6 +15,10 @@ const modal = refs.modal;
 // * const overlay = document.querySelector('.overlay');
 // * const modal = document.querySelector('.modal');
 
+// window.removeEventListener('scroll', e => {
+//   window.scrollTo(0,0);
+// });
+
 window.addEventListener('keydown', e => {
   if (modal.classList.contains('active')) {
     handleKeyDown(e);
