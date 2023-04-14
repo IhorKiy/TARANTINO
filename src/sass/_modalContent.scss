@@ -44,6 +44,18 @@
   visibility: visible;
   overflow-y: scroll;
   height: 100vh;
+  @media screen and (min-width: 400px) {
+    overflow-y: scroll;
+    height: 100vh;
+  }
+  @media screen and (min-width: 768px) {
+    overflow-y: scroll;
+    height: 90vh;
+  }
+  @media screen and (min-width: 1200px) {
+    overflow-y: scroll;
+    height: 558px;
+  }
 }
 
 body.modal.active {
