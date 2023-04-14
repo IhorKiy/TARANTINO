@@ -138,8 +138,7 @@ function openModalMovie(event) {
       }
     }
   }
-}
-// ==== Queue function ====
+  // ==== Queue function ====
 function fQueue(event) {
   if (event.target.textContent === 'ADD TO QUEUE') {
     let addToQueueData = localStorage.getItem('queueArr');
@@ -172,6 +171,8 @@ function fQueue(event) {
     }
   }
 }
+}
+
 
 export default saveDataMovie;
 
