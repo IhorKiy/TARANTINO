@@ -58,3 +58,13 @@ const handleClick = e => {
     // showQueue();
   }
 };
+
+// const onCloseCrose = document.querySelector('.button-close');
+// onCloseCrose.addEventListener('click', e => {
+//   crossClick(e);
+// });
+
+// const crossClick = e => {
+//   modal.classList.remove('active');
+//   overlay.classList.remove('active');
+// };
