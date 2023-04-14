@@ -114,7 +114,7 @@ function openModalMovie(event) {
     if (event.target.textContent === 'ADD TO WATCHED') {
       // let addToWatchedData = localStorage.getItem('wathedArr');
       // addToWatchedData = JSON.parse(addToWatchedData);
-      const addToWatchedData = storage.loadFromWatched();
+      let addToWatchedData = storage.loadFromWatched();
       addToWatchedData.push(movieData);
       // localStorage.setItem('wathedArr', JSON.stringify(addToWatchedData));
       storage.saveToWatched(addToWatchedData);
@@ -161,7 +161,7 @@ function fQueue(event) {
     let removeQueueData = storage.loadFromQueue();
     removeQueueData = removeQueueData.filter(({ id }) => id !== movieData.id);
     //localStorage.setItem('queueArr', JSON.stringify(removeQueueData));
-    storage.saveToQueue(addToQueueData);
+    storage.saveToQueue(removeQueueData);
     event.target.textContent = 'ADD TO QUEUE';
     // console.log(libraryBtn.classList.contains('current'));
     // const container = document.querySelector('#container'); // выберите контейнер
