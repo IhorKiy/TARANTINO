@@ -1,34 +1,14 @@
-import { refs } from "./refs";
 export default class Loader {
   constructor() {
-    // this.overlay = document.querySelector('.loader__overlay');
-    // this.loader = document.querySelector('.loader');
-    this.overlay = refs.loaderOverlay;
-    this.loader = refs.loader;
+    this.loaderElement = document.querySelector(".preloader");
+    this.disable();
   }
 
   enable() {
-    this.overlay.classList.remove('is-hidden');
-    this.loader.classList.add('loader--on');
+    this.loaderElement.classList.remove("is-hidden");
   }
 
   disable() {
-    this.overlay.classList.add('is-hidden');
-    this.loader.classList.remove('loader--on');
+    this.loaderElement.classList.add("is-hidden");
   }
 }
-
-
-// export default function toggleLoader(isLoading) {
-//   const overlay = document.querySelector('.loader__overlay');
-//   const loader = document.querySelector('.loader');
-
-//   if (isLoading) {
-//     overlay.classList.remove('is-hidden');
-//     loader.classList.add('loader--on');
-//   } else {
-//     overlay.classList.add('is-hidden');
-//     loader.classList.remove('loader--on');
-//   }
-
-// }
