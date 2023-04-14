@@ -6,7 +6,7 @@ import './js/serviseAPI';
 import './js/onFirstRender';
 import './js/modal_footer';
 import './js/paginator';
-import './js/btnUp';
+// import './js/btnUp';
 // import './js/queue';
 import './js/searchQuery';
 import './js/top-slider';
