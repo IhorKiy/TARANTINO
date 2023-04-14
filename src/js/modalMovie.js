@@ -139,40 +139,39 @@ function openModalMovie(event) {
     }
   }
   // ==== Queue function ====
-function fQueue(event) {
-  if (event.target.textContent === 'ADD TO QUEUE') {
-    let addToQueueData = localStorage.getItem('queueArr');
-    addToQueueData = JSON.parse(addToQueueData);
-    addToQueueData.push(movieData);
-    localStorage.setItem('queueArr', JSON.stringify(addToQueueData));
-    event.target.textContent = 'REMOVE FROM QUEUE';
-  } else {
-    let removeQueueData = localStorage.getItem('queueArr');
-    removeQueueData = JSON.parse(removeQueueData);
-    removeQueueData = removeQueueData.filter(({ id }) => id !== movieData.id);
-    localStorage.setItem('queueArr', JSON.stringify(removeQueueData));
-    event.target.textContent = 'ADD TO QUEUE';
-    // console.log(libraryBtn.classList.contains('current'));
-    // const container = document.querySelector('#container'); // выберите контейнер
+  function fQueue(event) {
+    if (event.target.textContent === 'ADD TO QUEUE') {
+      let addToQueueData = localStorage.getItem('queueArr');
+      addToQueueData = JSON.parse(addToQueueData);
+      addToQueueData.push(movieData);
+      localStorage.setItem('queueArr', JSON.stringify(addToQueueData));
+      event.target.textContent = 'REMOVE FROM QUEUE';
+    } else {
+      let removeQueueData = localStorage.getItem('queueArr');
+      removeQueueData = JSON.parse(removeQueueData);
+      removeQueueData = removeQueueData.filter(({ id }) => id !== movieData.id);
+      localStorage.setItem('queueArr', JSON.stringify(removeQueueData));
+      event.target.textContent = 'ADD TO QUEUE';
+      // console.log(libraryBtn.classList.contains('current'));
+      // const container = document.querySelector('#container'); // выберите контейнер
 
-    if (
-      refs.libraryBtn.classList.contains('current') ||
-      refs.addToQueueBtn.classList.contains('current')
-    ) {
-      const queuryArr = window.localStorage.getItem('queueArr');
-      // console.log(queuryArr);
-      let parsedMoviesQery = JSON.parse(queuryArr);
-      console.log(parsedMoviesQery.length);
-      if (parsedMoviesQery.length < 1) {
-        refs.libraryContainer.innerHTML = '';
+      if (
+        refs.libraryBtn.classList.contains('current') ||
+        refs.addToQueueBtn.classList.contains('current')
+      ) {
+        const queuryArr = window.localStorage.getItem('queueArr');
+        // console.log(queuryArr);
+        let parsedMoviesQery = JSON.parse(queuryArr);
+        console.log(parsedMoviesQery.length);
+        if (parsedMoviesQery.length < 1) {
+          refs.libraryContainer.innerHTML = '';
+        }
+        renderLibraryCards(parsedMoviesQery, refs.libraryContainer);
+        return;
       }
-      renderLibraryCards(parsedMoviesQery, refs.libraryContainer);
-      return;
     }
   }
 }
-}
-
 
 export default saveDataMovie;
 
@@ -233,6 +232,13 @@ function renderMovieDataToModal(
           <button type="button" class="modal__film-btn queue">${textButtonQueue}</button>
         </li>
       </ul>
+      <div>
+        <button class="button-close btn js-modal-close">
+          <svg class="icon-cross" width="20" height="20">
+            <use href="../images/symbol-defs.svg#icon-modal-cross"></use>
+          </svg>
+        </button>
+      </div>
     </div>
 
   `;
