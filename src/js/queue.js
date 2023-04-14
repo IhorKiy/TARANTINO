@@ -24,7 +24,7 @@ export function showQueue() {
     const queuryArr = window.localStorage.getItem('queueArr');
     // console.log(queuryArr);
     let parsedMoviesQery = JSON.parse(queuryArr);
-    console.log(parsedMoviesQery.length);
+
     if (parsedMoviesQery.length < 1) {
       refs.libraryContainer.innerHTML = '';
     }

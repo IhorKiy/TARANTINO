@@ -8,6 +8,7 @@
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 1200;
+  overflow: no-scroll;
 }
 
 .modal {
@@ -41,6 +42,12 @@
 .overlay.active {
   opacity: 1;
   visibility: visible;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+body.modal.active {
+  overflow: hidden;
 }
 
 .modal__poster-box {
