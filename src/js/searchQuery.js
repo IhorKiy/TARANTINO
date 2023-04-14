@@ -76,7 +76,7 @@ async function fetchByQuery(value, page) {
 
     if (res.results.length === 0) {
       loader.disable();
-      console.log(`Sorry, no movies were found for your search.`);
+      return Notify.failure(`Sorry, no movies were found for your search.`);
     }
 
     paginatorQuery.totalPages = res.total_pages;
@@ -93,7 +93,7 @@ async function fetchByQuery(value, page) {
 
     paginatorQuery.makeMarkup();
   } catch (error) {
-    console.log(error);
+    
   }
 }
 
