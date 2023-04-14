@@ -27,7 +27,7 @@ const modal = document.querySelector('.modal');
 const watchedBtnAdd = document.querySelector('.library__nav-btn--watched');
 // const movieContainer = document.querySelector('.card__container');
 const movieContainer = document.querySelector('.home__container');
-libraryBtn = document.querySelector('.header__nav-btn--lib');
+// libraryBtn = document.querySelector('.header__nav-btn--lib');
 const movieContainerLibrary = document.querySelector(
   '.library__container'
   // '.card__container--library'
@@ -153,7 +153,7 @@ function fQueue(event) {
     removeQueueData = removeQueueData.filter(({ id }) => id !== movieData.id);
     localStorage.setItem('queueArr', JSON.stringify(removeQueueData));
     event.target.textContent = 'ADD TO QUEUE';
-    console.log(libraryBtn.classList.contains('current'));
+    // console.log(libraryBtn.classList.contains('current'));
     // const container = document.querySelector('#container'); // выберите контейнер
 
     if (
