@@ -10,7 +10,9 @@ import Notiflix from 'notiflix';
 // const gallery = refs.libraryContainer;
 const movies = storage.loadFromWatched();
 
-refs.watchedBtn.addEventListener('click', showWatched);
+if (refs.watchedBtn) {
+  refs.watchedBtn.addEventListener('click', showWatched);
+}
 
 function showWatched() {
   if (!movies) {
