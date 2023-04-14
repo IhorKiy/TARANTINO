@@ -17,13 +17,14 @@ import imagePlaceholder from '../images/image-placeholder.png';
 //   addToWatched,
 //   removeFromWatched,
 // } from './modal_button_storage';
-// import { refs } from './refs';
+import { refs } from './refs';
 
 // const filmCardRefs = document.querySelector('.card__container');
 const modalRefs = document.querySelector('.modal');
 const overlayRefs = document.querySelector('.overlay');
 const overlay = document.querySelector('.overlay');
 const modal = document.querySelector('.modal');
+const watchedBtnAdd = document.querySelector('.library__nav-btn--watched');
 // const movieContainer = document.querySelector('.card__container');
 const movieContainer = document.querySelector('.home__container');
 libraryBtn = document.querySelector('.header__nav-btn--lib');
@@ -123,38 +124,53 @@ function openModalMovie(event) {
       localStorage.setItem('wathedArr', JSON.stringify(removeWatchedData));
       event.target.textContent = 'ADD TO WATCHED';
 
-      if (refs.watchedBtn.classList.contains('active')) {
-        const watched = storage.loadFromWatched() || [];
-        insertCardMarkup(watched, refs.libraryContainer);
+      if (
+        libraryBtn.classList.contains('current') &&
+        watchedBtnAdd.classList.contains('active')
+      ) {
+        const moviesArr = window.localStorage.getItem('wathedArr');
+        let parsedMovies = JSON.parse(moviesArr);
+        if (parsedMovies.length < 1) {
+          refs.libraryContainer.innerHTML = '';
+        }
+        renderLibraryCards(parsedMovies, refs.libraryContainer);
         return;
       }
     }
   }
-  // ==== Queue function ====
-  function fQueue(event) {
-    if (event.target.textContent === 'ADD TO QUEUE') {
-      let addToQueueData = localStorage.getItem('queueArr');
-      addToQueueData = JSON.parse(addToQueueData);
-      addToQueueData.push(movieData);
-      localStorage.setItem('queueArr', JSON.stringify(addToQueueData));
-      event.target.textContent = 'REMOVE FROM QUEUE';
-    } else {
-      let removeQueueData = localStorage.getItem('queueArr');
-      removeQueueData = JSON.parse(removeQueueData);
-      removeQueueData = removeQueueData.filter(({ id }) => id !== movieData.id);
-      localStorage.setItem('queueArr', JSON.stringify(removeQueueData));
-      event.target.textContent = 'ADD TO QUEUE';
+}
+// ==== Queue function ====
+function fQueue(event) {
+  if (event.target.textContent === 'ADD TO QUEUE') {
+    let addToQueueData = localStorage.getItem('queueArr');
+    addToQueueData = JSON.parse(addToQueueData);
+    addToQueueData.push(movieData);
+    localStorage.setItem('queueArr', JSON.stringify(addToQueueData));
+    event.target.textContent = 'REMOVE FROM QUEUE';
+  } else {
+    let removeQueueData = localStorage.getItem('queueArr');
+    removeQueueData = JSON.parse(removeQueueData);
+    removeQueueData = removeQueueData.filter(({ id }) => id !== movieData.id);
+    localStorage.setItem('queueArr', JSON.stringify(removeQueueData));
+    event.target.textContent = 'ADD TO QUEUE';
+    console.log(libraryBtn.classList.contains('current'));
+    // const container = document.querySelector('#container'); // выберите контейнер
 
-      // if (libraryBtn.classList.contains('active')) {
-      //   const queue = storage.loadFromQueue() || [];
-      //   insertCardMarkup(queue, refs.libraryContainer);
-      //   // event.target.textContent = 'ADD TO WATCHED';
-      //   return;
-      // }
+    if (
+      libraryBtn.classList.contains('current') ||
+      refs.addToQueueBtn.classList.contains('current')
+    ) {
+      const queuryArr = window.localStorage.getItem('queueArr');
+      // console.log(queuryArr);
+      let parsedMoviesQery = JSON.parse(queuryArr);
+      console.log(parsedMoviesQery.length);
+      if (parsedMoviesQery.length < 1) {
+        refs.libraryContainer.innerHTML = '';
+      }
+      renderLibraryCards(parsedMoviesQery, refs.libraryContainer);
+      return;
     }
   }
-  // ====
-  return movieData;
 }
 
 export default saveDataMovie;
@@ -226,6 +242,37 @@ function openModalView() {
   overlayRefs.classList.add('active');
 }
 
+function renderLibraryCards(parsedMoviesQery, ref) {
+  const cardMarkup = parsedMoviesQery
+    .map(
+      ({ id, title, release_date, poster_path, genre_ids, first_air_date }) => {
+        const getGenreNames = getGenresNames(genre_ids);
+        const movieData = {
+          release_date,
+          first_air_date,
+        };
+        let releaseDate = '';
+        if (movieData.release_date) {
+          releaseDate = movieData.release_date.slice(0, 4);
+        } else if (movieData.first_air_date) {
+          releaseDate = movieData.first_air_date.slice(0, 4);
+        }
+        return `
+        <li id=${id} class=film_card>
+        <div class=img__wrapper><img class=film_poster src=https://image.tmdb.org/t/p/original${poster_path} width= 50 height= 50 alt= ${title}/></div>
+        <div class="film_info">
+        <p class=film_name>${title}</p>
+        <p class=film_genre>${getGenreNames} <span class=line>|<span> ${releaseDate}</p>
+                </div>
+
+        </li>`;
+      }
+    )
+    .join('');
+  //  const LibaCont = document.querySelector('.library__container');
+  ref.innerHTML = cardMarkup;
+  return;
+}
 // Експорт данних по фільмам для обміну між local storage звернення: modalMovie.movies()
 // export {
 //   movies, // масив фільмів за ключем 'current' що приходять з local storage з load

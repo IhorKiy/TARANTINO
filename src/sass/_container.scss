@@ -38,8 +38,10 @@
   margin-right: auto;
 }
 
-.card__container,
-.card__container--library {
+// .card__container,
+// .card__container--library {
+.home__container,
+.library__container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
