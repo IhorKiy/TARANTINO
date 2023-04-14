@@ -1,4 +1,5 @@
-import { refs } from './refs';
+
+import { refs } from "./refs";
 
 // Інструкція!
 // 1. Імпортувати класс Paginator, створити екземпляр та зберегти в змінну;
@@ -9,6 +10,8 @@ import { refs } from './refs';
 // 6. Всередині функції-обробника викликати метод назва-змінної-екземплярую.getNumber() і паредати йому об'єкт події, як аргумент;
 // 7. Метод getNumber() повертає номер сторінки або null, ящо користувач натиснув на "...";
 // 8. Виконати повторний рендер контенту сторінки, яку обрав користувач;
+
+
 
 export default class Paginator {
   constructor() {
@@ -23,36 +26,28 @@ export default class Paginator {
   makeMarkup() {
     let markup = '';
 
-    if (
-      this.currentPage > this.pages[2] &&
-      this.totalPages !== this.pages[4] &&
-      this.currentPage > this.previousPage
-    ) {
+    if (this.currentPage > this.pages[2] && this.totalPages !== this.pages[4] && this.currentPage > this.previousPage) {
       this.pages.push(this.pages[4] + 1);
-      this.pages.shift();
+      this.pages.shift( );
     }
 
-    if (
-      this.currentPage < this.pages[2] &&
-      this.pages[0] !== 1 &&
-      this.currentPage < this.previousPage
-    ) {
+    if (this.currentPage < this.pages[2] && this.pages[0] !== 1 && this.currentPage < this.previousPage) {
       this.pages.unshift(this.pages[0] - 1);
       this.pages.pop();
     }
 
     this.pages.forEach(page => {
+      
       if (page === this.currentPage) {
         markup += `<li class="current">${page}</li>`;
       } else {
         markup += `<li>${page}</li>`;
       }
+
     });
 
     if (this.totalPages > 5 && this.totalPages > this.pages[4]) {
-      markup =
-        markup +
-        `<li class="more">...</li><li class="more">${this.totalPages}</li>`;
+      markup = markup + `<li class="more">...</li><li class="more">${this.totalPages}</li>`;
     }
 
     if (this.totalPages > 5 && this.currentPage > 3) {
@@ -64,7 +59,6 @@ export default class Paginator {
 
   getNumber(event) {
     const action = event.target.outerText;
-    const number = Number(event.target.outerText);
 
     if (action === 'Next' && this.currentPage < this.totalPages) {
       this.previousPage = this.currentPage;
@@ -73,20 +67,15 @@ export default class Paginator {
       return this.currentPage;
     }
 
-    if (number) {
-      this.previousPage = this.currentPage;
-      this.currentPage = number;
-      this.makeMarkup();
-      return this.currentPage;
-    }
-
     if (action === 'Prev' && this.currentPage > 1) {
       this.previousPage = this.currentPage;
       this.currentPage -= 1;
       this.makeMarkup();
-      return this.currentPage;
+      return this.currnetPage;
     }
 
     return null;
   }
-}
+
+
+};
