@@ -118,6 +118,19 @@ function loadCurrentPage() {
 function loadFromWatched() {
   const movies = load(WATCHED_KEY);
   return movies;
+
+}
+//записуємо в модалці коли натиснули ADD TO WATCHED
+function saveToWatched(movies) {
+   save(WATCHED_KEY,movies);
+  return ;
+  
+}
+//записуємо в модалці коли натиснули ADD TO QUEUE
+function saveToQueue(movies) {
+   save(QUEUE_KEY,movies);
+  return ;
+  
 }
 
 //при натисненні кнопки QUEUE витягаємо (треба поилання на кнопку)
@@ -144,5 +157,7 @@ export default {
   saveCurrentPage, //storage.saveCurrentPage(data)  той хто фетчить той має додати масив фільмів(data) в сховище
   loadCurrentPage, //storage.loadCurrentPage() хто рендерить текучу сторінку ,той бере масив фільмів зі сховища
   loadFromWatched, //storage.loadFromWatched() коли натиснули WATCHED використовуємо для рендера сторінки в MyLibrary
+  saveToWatched,   //storage.saveToWatched(movies) коли натиснули ADD TO WATCHED записуємо в watched
   loadFromQueue, //storage.loadFromQueue() коли натиснули QUEUE використовуємо для рендера сторінки в MyLibrary
+  saveToQueue,   //storage.eue() коли натиснули ADD TO QUEUE записуємо в queue
 };
