@@ -240,6 +240,9 @@ function renderMovieDataToModal(
 function openModalView() {
   modalRefs.classList.add('active');
   overlayRefs.classList.add('active');
+  window.addEventListener('scroll', e => {
+    window.scrollTo(0, 0);
+  });
 }
 
 function renderLibraryCards(parsedMoviesQery, ref) {
