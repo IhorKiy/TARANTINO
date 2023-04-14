@@ -3,47 +3,46 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 
-   const modalButtons = document.querySelectorAll('.footer-js-open-modal'),
-         over     = document.querySelector('.footer-js-overlay-modal'),
-         closeButtons = document.querySelectorAll('.footer-js-modal-close');
+   var modalButtons = document.querySelectorAll('.js-open-modal'),
+         overlay      = document.querySelector('.js-overlay-modal'),
+         closeButtons = document.querySelectorAll('.js-modal-close');
 
 
    modalButtons.forEach(function(item){
       item.addEventListener('click', function(e) {
          e.preventDefault();
 
-         const modalId = this.getAttribute('data-modal'),
+         var modalId = this.getAttribute('data-modal'),
             modalElem = document.querySelector('.footer2-modal[data-modal="' + modalId + '"]');
             modalElem.classList.add('active-footer');
-            over.classList.add('active-footer');
+            overlay.classList.add('active-footer');
       });
 
-   }); 
+   });
 
    closeButtons.forEach(function(item){
 
       item.addEventListener('click', function(e) {
-         const parentModal = this.closest('.footer2-modal');
+         var parentModal = this.closest('.footer2-modal');
 
          parentModal.classList.remove('active-footer');
-         over.classList.remove('active-footer');
+         overlay.classList.remove('active-footer');
       });
 
    });
 
    // document.body.addEventListener('keyup', function (e) {
-   //    const key = e.keyCode;
+   //    var key = e.keyCode;
 
    //    if (key == 27) {
-         
-      
+
    //          document.querySelector('.footer2-modal.active-footer').classList.remove('active-footer');
-   //          document.querySelector('.over').classList.remove('active-footer');
+   //          document.querySelector('.overlay').classList.remove('active-footer');
    //       };
    //    }, false);
 
 
-   // over.addEventListener('click', function() {
+   // overlay.addEventListener('click', function() {
    //       document.querySelector('.footer2-modal.active-footer').classList.remove('active-footer');
    //       this.classList.remove('active-footer');
    //    });
