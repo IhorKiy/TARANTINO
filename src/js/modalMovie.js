@@ -65,7 +65,7 @@ function openModalMovie(event) {
 
   const movies = storage.load('current');
 
-  movieData = movies.find(
+  const movieData = movies.find(
     movie => movie.id === Number(event.target.closest('.film_card').id)
   );
   const moviesArr = window.localStorage.getItem('wathedArr');
