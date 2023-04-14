@@ -36,7 +36,6 @@ async function onLoad(e) {
   if (refs.libraryBtn.classList.contains('current')) {
     const getLibraryData = localStorage.getItem('queueArr');
     const getLibraryDataParse = JSON.parse(getLibraryData);
-    console.log(getLibraryDataParse);
 
     const cardMarkup = getLibraryDataParse
       .map(
