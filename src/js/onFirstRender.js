@@ -22,6 +22,7 @@ export function onClickPagination(e) {
 
 async function render(page) {
   const { results } = await apiMovie.fetchAllMovie(page);
+  storage.saveCurrentPage(results);
   insertCardMarkup(results, movieContainer);
   loader.disable();
 }
