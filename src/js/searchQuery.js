@@ -17,6 +17,7 @@ form.addEventListener(`submit`, onSearch);
 
 function getQueryData(e) {
   console.log('here');
+  
   let nowPage = paginatorQuery.getNumber(e);
   if (nowPage) {
     async function fetchByQueryFropmPag(value, page) {
