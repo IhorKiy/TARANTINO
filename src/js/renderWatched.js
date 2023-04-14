@@ -15,7 +15,7 @@ if (refs.watchedBtn) {
 }
 
 function showWatched() {
-  if (!movies) {
+  if (!movies || movies.length === 0) {
     Notiflix.Notify.failure('Oops, empty!');
   } else {
     refs.queueBtn.classList.remove('active');
