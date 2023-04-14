@@ -6,11 +6,11 @@ import Notiflix from 'notiflix';
 
 // const watchedBtn = document.querySelector('.library__nav-btn--watched');
 // const gallery = document.querySelector('.card__container--library');
-const watchedBtn = refs.watchedBtn;
-const gallery = refs.libraryContainer;
+// const watchedBtn = refs.watchedBtn;
+// const gallery = refs.libraryContainer;
 const movies = storage.loadFromWatched();
 
-watchedBtn.addEventListener('click', showWatched);
+refs.watchedBtn.addEventListener('click', showWatched);
 
 function showWatched() {
   if (!movies) {
