@@ -13,7 +13,7 @@ if (refs.queueBtn) {
 
 export function showQueue() {
   if (!queue || !queue.length) {
-    Notiflix.Notify.failure('Queue is empty!');
+    Notiflix.Notify.failure('Oops, empty!');
     return;
   } else {
     refs.queueBtn.classList.add('active');
@@ -21,10 +21,10 @@ export function showQueue() {
     // console.log(refs.queueBtn);
     // console.log(refs.libraryBtn);
     // insertCardMarkup(queue, gallery);
-    const queuryArr = window.localStorage.getItem('queueArr');
+    //const queuryArr = window.localStorage.getItem('queueArr');
     // console.log(queuryArr);
-    let parsedMoviesQery = JSON.parse(queuryArr);
-
+    //let parsedMoviesQery = JSON.parse(queuryArr);
+    let parsedMoviesQery = storage.loadFromQueue();
     if (parsedMoviesQery.length < 1) {
       refs.libraryContainer.innerHTML = '';
     }

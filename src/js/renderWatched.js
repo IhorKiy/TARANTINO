@@ -20,9 +20,9 @@ function showWatched() {
   } else {
     refs.queueBtn.classList.remove('active');
     refs.watchedBtn.classList.add('active');
-    const moviesArr = window.localStorage.getItem('wathedArr');
-    let parsedMovies = JSON.parse(moviesArr);
-
+    // const moviesArr = window.localStorage.getItem('wathedArr');
+    // let parsedMovies = JSON.parse(moviesArr);
+    let parsedMovies = storage.loadFromWatched();
     renderLibraryCards(parsedMovies, refs.libraryContainer);
   }
 }
