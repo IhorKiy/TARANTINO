@@ -13,7 +13,7 @@ if (refs.queueBtn) {
 
 export function showQueue() {
   if (!queue || !queue.length) {
-    Notiflix.Notify.failure('Queue empty!');
+    Notiflix.Notify.failure('Queue is empty!');
     return;
   } else {
     refs.queueBtn.classList.add('active');
