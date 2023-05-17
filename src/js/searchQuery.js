@@ -5,6 +5,9 @@ import { Notify } from 'notiflix';
 import Loader from './loader';
 import Paginator from './paginator';
 
+
+//export default LANG ="en-EN";
+
 const loader = new Loader();
 let userValue = '';
 const form = document.querySelector('.header__form');
@@ -47,7 +50,8 @@ function getQueryData(e) {
 
 function onSearch(e) {
   e.preventDefault();
-
+  
+ 
   userValue = e.currentTarget.elements.searchQuery.value.trim();
 
   if (userValue === '') {

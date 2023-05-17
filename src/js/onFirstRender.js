@@ -1,3 +1,5 @@
+export let LANG = "en-EN";
+
 import { apiMovie } from './serviseAPI';
 import insertCardMarkup from './cardMarkup';
 import insertSliderMarkup from './sliderMarkup';
@@ -30,10 +32,25 @@ async function render(page) {
 const movieContainer = refs.cardContainer;
 
 window.addEventListener('load', onLoad);
-
+ 
+//********вибір мови
+if (refs.switch) {
+  refs.switch.addEventListener("click", onChecked);
+}
+function  onChecked(e) {
+  let element = e.currentTarget;
+  if (element.checked) {
+    LANG = "ru-RU";
+   
+  }
+  else LANG = "en-EN";
+  console.log("LANG from onFirstRender ",LANG);
+  
+}
+//************************* */
 async function onLoad(e) {
   e.preventDefault();
-  if (refs.libraryBtn.classList.contains('current')) {
+   if (refs.libraryBtn.classList.contains('current')) {
     const getLibraryData = localStorage.getItem('queueArr');
     const getLibraryDataParse = JSON.parse(getLibraryData);
 

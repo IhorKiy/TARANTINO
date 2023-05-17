@@ -15,6 +15,8 @@ export const refs = {
   addToWatchedBtn: document.querySelector('.watched'), //клас кнопки ADD TO WATCHED
   addToQueueBtn: document.querySelector('.queue'), // клас кнопки ADD TO QUEUE
   libraryBtn: document.querySelector('.header__nav-btn--lib'),
+  switch: document.querySelector('.switch'),
+  label: document.querySelector('.switch-for'),
+   
 };
-/* <button class="modal__film-btn watched"
-<button class="modal__film-btn queue" */
+

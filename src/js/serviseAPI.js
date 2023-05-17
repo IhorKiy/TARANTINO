@@ -1,4 +1,8 @@
 import axios from 'axios';
+import { refs } from './refs';
+import { LANG } from './onFirstRender';
+
+ 
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
@@ -7,10 +11,14 @@ export class ApiMovie {
   query = '';
   genres = [];
 
+ 
+
   async fetchMovieWeek(page) {
     const params = new URLSearchParams({
       api_key: this.#API_KEY,
+      language : LANG,
       page: page,
+
     });
 
     try {
@@ -24,7 +32,7 @@ export class ApiMovie {
   async fetchAllMovie(page) {
     const params = new URLSearchParams({
       api_key: this.#API_KEY,
-      language:'ua-UA',
+      language : LANG,
       page: page,
     });
 
@@ -39,7 +47,7 @@ export class ApiMovie {
   async searchMovieByQuery(query, page) {
     const params = new URLSearchParams({
       api_key: this.#API_KEY,
-      language:'ru-RU',
+      language : LANG,
       query: query,
       page: page,
     });
@@ -52,7 +60,7 @@ export class ApiMovie {
   async fetchMovieById(id) {
     const params = new URLSearchParams({
       api_key: this.#API_KEY,
-      language:'ua-UA',
+      language : LANG,
     });
 
     const { data } = await axios(`/movie/${id}`, { params });
@@ -62,7 +70,7 @@ export class ApiMovie {
   async fetchTrailerById(id) {
     const params = new URLSearchParams({
       api_key: this.#API_KEY,
-       language:'ua-UA',
+      language : LANG,
     });
 
     try {
@@ -76,7 +84,7 @@ export class ApiMovie {
   async fetchGenres() {
     const params = new URLSearchParams({
       api_key: this.#API_KEY,
-      language:'ru-RU',
+       language : "ru-RU",
     });
 
     const { data } = await axios('/genre/movie/list', { params });
