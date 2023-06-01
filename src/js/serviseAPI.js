@@ -24,6 +24,7 @@ export class ApiMovie {
   async fetchAllMovie(page) {
     const params = new URLSearchParams({
       api_key: this.#API_KEY,
+      language:'ua-UA',
       page: page,
     });
 
@@ -38,17 +39,20 @@ export class ApiMovie {
   async searchMovieByQuery(query, page) {
     const params = new URLSearchParams({
       api_key: this.#API_KEY,
+      language:'ru-RU',
       query: query,
       page: page,
     });
 
     const { data } = await axios('/search/movie', { params });
+    console.log(...params);
     return data;
   }
 
   async fetchMovieById(id) {
     const params = new URLSearchParams({
       api_key: this.#API_KEY,
+      language:'ua-UA',
     });
 
     const { data } = await axios(`/movie/${id}`, { params });
@@ -58,6 +62,7 @@ export class ApiMovie {
   async fetchTrailerById(id) {
     const params = new URLSearchParams({
       api_key: this.#API_KEY,
+       language:'ua-UA',
     });
 
     try {
@@ -71,6 +76,7 @@ export class ApiMovie {
   async fetchGenres() {
     const params = new URLSearchParams({
       api_key: this.#API_KEY,
+      language:'ru-RU',
     });
 
     const { data } = await axios('/genre/movie/list', { params });

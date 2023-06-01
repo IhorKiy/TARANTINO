@@ -109,16 +109,25 @@ function saveCurrentPage(data) {
 //для рендеринга витягаємо масив фільмів з localStorage
 function loadCurrentPage() {
   const arrayMovies = load(CURRENT_KEY);
-  console.log('from loadCurrentPage', arrayMovies);
+  //console.log('from loadCurrentPage', arrayMovies);
   return arrayMovies;
 }
 
 // при натисненні на кнопку WATCHED
+//додаємо фільм в масив з WATCHED_KEY
+function saveToWatched(data) {
+  save(WATCHED_KEY, data);
+ }
 //витягаємо  масив фільмів для рендерінга з localStorage(watched)
 function loadFromWatched() {
   const movies = load(WATCHED_KEY);
   return movies;
 }
+// при натисненні на кнопку QUEUE
+//додаємо фільм в масив з QUEUE_KEY
+function saveToQueue(data) {
+  save(QUEUE_KEY, data);
+ }
 
 //при натисненні кнопки QUEUE витягаємо (треба поилання на кнопку)
 //витягаємо  масив фільмів для рендерінга з localStorage(queue)
@@ -143,6 +152,8 @@ export default {
   loadTrendMovies, //storage.loadTrendMovies() для рендерігна  поверне масив трендових фільмів  зі сховища
   saveCurrentPage, //storage.saveCurrentPage(data)  той хто фетчить той має додати масив фільмів(data) в сховище
   loadCurrentPage, //storage.loadCurrentPage() хто рендерить текучу сторінку ,той бере масив фільмів зі сховища
+  saveToWatched,   ///storage.saveToWatched(data) записує data в WATCHED_KEY
   loadFromWatched, //storage.loadFromWatched() коли натиснули WATCHED використовуємо для рендера сторінки в MyLibrary
+  saveToQueue,     /////storage.saveToQUEUE(data) записує data в QUEUE_KEY
   loadFromQueue, //storage.loadFromQueue() коли натиснули QUEUE використовуємо для рендера сторінки в MyLibrary
 };

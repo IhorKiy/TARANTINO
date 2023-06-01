@@ -16,13 +16,13 @@ if (refs.watchedBtn) {
 
 function showWatched() {
   if (!movies || movies.length === 0) {
-    Notiflix.Notify.failure('Oops, empty!');
+    Notiflix.Notify.failure('Watched, empty!');
   } else {
     refs.queueBtn.classList.remove('active');
     refs.watchedBtn.classList.add('active');
-    const moviesArr = window.localStorage.getItem('wathedArr');
-    let parsedMovies = JSON.parse(moviesArr);
-
+    // const moviesArr = window.localStorage.getItem('wathedArr');
+    // let parsedMovies = JSON.parse(moviesArr);
+    let parsedMovies = storage.loadFromWatched();
     renderLibraryCards(parsedMovies, refs.libraryContainer);
   }
 }
