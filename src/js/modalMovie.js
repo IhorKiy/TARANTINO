@@ -4,7 +4,6 @@ export { buttonWatchedRefs, buttonQueueRefs, fWatched, fQueue };
 // import ApiMovie from './serviseAPI';
 // import { apiMovie } from './serviseAPI';
 import storage from './storage';
-// import { load } from './storage';
 // import cardMarkup from './cardMarkup';
 // import onFirstRender from './onFirstRender';
 import { getGenresNames } from './getGenresNames';
@@ -25,6 +24,7 @@ const overlayRefs = document.querySelector('.overlay');
 const overlay = document.querySelector('.overlay');
 const modal = document.querySelector('.modal');
 const watchedBtnAdd = document.querySelector('.library__nav-btn--watched');
+const queueBtnAdd = document.querySelector('.library__nav-btn----queue');
 // const movieContainer = document.querySelector('.card__container');
 const movieContainer = document.querySelector('.home__container');
 // libraryBtn = document.querySelector('.header__nav-btn--lib');
@@ -60,16 +60,24 @@ let saveDataMovie = {};
 
 function openModalMovie(event) {
   event.preventDefault();
+  let movies = [];
 
   openModalView();
-
-  const movies = storage.load('current');
-
+  //якщо home берем фільми з ключа  current
+  movies = storage.loadCurrentPage();
+  //якщо library+watched берем з ключа watched
+  if (refs.watchedBtn && refs.watchedBtn.classList.contains('active')) {
+   movies = storage.loadFromWatched();
+    
+  }
+  //якщо library+queue берем з ключа queue
+  if (refs.queueBtn && refs.queueBtn.classList.contains('active')) {
+    movies = storage.loadFromQueue();
+  }
   const movieData = movies.find(
     movie => movie.id === Number(event.target.closest('.film_card').id)
   );
-  const moviesArr = window.localStorage.getItem('wathedArr');
-  let parsedMovies = JSON.parse(moviesArr);
+    let parsedMovies = storage.loadFromWatched();
 
   let textButtonWatched = '';
   let textButtonQueue = '';
@@ -83,11 +91,8 @@ function openModalMovie(event) {
   }
   // ==== QUEUE ====
 
-  const queuryArr = window.localStorage.getItem('queueArr');
-  // console.log(queuryArr);
-  let parsedMoviesQery = JSON.parse(queuryArr);
-  // console.log(parsedMoviesQery);
-  function isQueue(movieData, parsedMoviesQery) {
+  let parsedMoviesQery = storage.loadFromQueue();
+   function isQueue(movieData, parsedMoviesQery) {
     if (parsedMoviesQery.findIndex(movie => movie.id === movieData.id) < 0) {
       textButtonQueue = addQueue;
       return textButtonQueue;
@@ -110,26 +115,23 @@ function openModalMovie(event) {
 
   function fWatched(event) {
     if (event.target.textContent === 'ADD TO WATCHED') {
-      let addToWatchedData = localStorage.getItem('wathedArr');
-      addToWatchedData = JSON.parse(addToWatchedData);
+      let addToWatchedData = storage.loadFromWatched();
       addToWatchedData.push(movieData);
-      localStorage.setItem('wathedArr', JSON.stringify(addToWatchedData));
+      storage.saveToWatched(addToWatchedData);
       event.target.textContent = 'REMOVE FROM WATCHED';
     } else {
-      let removeWatchedData = localStorage.getItem('wathedArr');
-      removeWatchedData = JSON.parse(removeWatchedData);
+      let removeWatchedData = storage.loadFromWatched();
       removeWatchedData = removeWatchedData.filter(
         ({ id }) => id !== movieData.id
       );
-      localStorage.setItem('wathedArr', JSON.stringify(removeWatchedData));
+      storage.saveToWatched(removeWatchedData);
       event.target.textContent = 'ADD TO WATCHED';
 
       if (
         refs.libraryBtn.classList.contains('current') &&
-        watchedBtnAdd.classList.contains('active')
+        refs.watchedBtn.classList.contains('active')
       ) {
-        const moviesArr = window.localStorage.getItem('wathedArr');
-        let parsedMovies = JSON.parse(moviesArr);
+        let parsedMovies = storage.loadFromWatched();
         if (parsedMovies.length < 1) {
           refs.libraryContainer.innerHTML = '';
         }
@@ -141,27 +143,24 @@ function openModalMovie(event) {
   // ==== Queue function ====
   function fQueue(event) {
     if (event.target.textContent === 'ADD TO QUEUE') {
-      let addToQueueData = localStorage.getItem('queueArr');
-      addToQueueData = JSON.parse(addToQueueData);
+      let addToQueueData = storage.loadFromQueue();
       addToQueueData.push(movieData);
-      localStorage.setItem('queueArr', JSON.stringify(addToQueueData));
+      storage.saveToQueue(addToQueueData);
       event.target.textContent = 'REMOVE FROM QUEUE';
     } else {
-      let removeQueueData = localStorage.getItem('queueArr');
-      removeQueueData = JSON.parse(removeQueueData);
+      let removeQueueData = storage.loadFromQueue();
       removeQueueData = removeQueueData.filter(({ id }) => id !== movieData.id);
-      localStorage.setItem('queueArr', JSON.stringify(removeQueueData));
+      storage.saveToQueue(removeQueueData);
       event.target.textContent = 'ADD TO QUEUE';
       // console.log(libraryBtn.classList.contains('current'));
       // const container = document.querySelector('#container'); // выберите контейнер
 
       if (
         refs.libraryBtn.classList.contains('current') ||
-        refs.addToQueueBtn.classList.contains('current')
+        refs.queueBtn.classList.contains('active')
       ) {
-        const queuryArr = window.localStorage.getItem('queueArr');
-        // console.log(queuryArr);
-        let parsedMoviesQery = JSON.parse(queuryArr);
+       
+        const parsedMoviesQery = storage.loadFromQueue();
         console.log(parsedMoviesQery.length);
         if (parsedMoviesQery.length < 1) {
           refs.libraryContainer.innerHTML = '';
